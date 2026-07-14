@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Type Comparison — Serif pairing vs Sans-only</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --obsidian:#0a0a0c; --obsidian-2:#14141a;
+  --champagne:#d4af6f; --champagne-2:#e6c285;
+  --white:#f6f3ec;
+  --w-65:rgba(255,255,255,.65); --w-45:rgba(255,255,255,.45); --w-08:rgba(255,255,255,.08); --w-06:rgba(255,255,255,.06); --w-04:rgba(255,255,255,.04);
+  --gold-15:rgba(212,175,111,.15); --gold-30:rgba(212,175,111,.30);
+  --text-primary:var(--white); --text-secondary:var(--w-65); --text-tertiary:var(--w-45); --accent:var(--champagne);
+
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Geist',system-ui,-apple-system,sans-serif;
+  --display-sans:'Bricolage Grotesque','Geist',system-ui,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+}
+
+body{
+  font-family:var(--sans); background:var(--obsidian); color:var(--text-primary);
+  -webkit-font-smoothing:antialiased; min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(212,175,111,.07), transparent 65%),
+    radial-gradient(ellipse 50% 35% at 85% 8%, rgba(243,223,179,.04), transparent 60%);
+  padding:48px 32px 80px;
+}
+
+.head{max-width:1200px; margin:0 auto 40px}
+.head .kicker{font:600 11px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:14px}
+.head h1{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 72; font-size:clamp(1.8rem,3vw,2.4rem); letter-spacing:-.02em; line-height:1.1}
+.head p{font-size:14px; color:var(--text-secondary); line-height:1.65; max-width:62ch; margin-top:12px}
+
+.compare{
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+}
+@media (max-width:900px){.compare{grid-template-columns:1fr}}
+
+.panel{display:flex; flex-direction:column; gap:14px}
+.panel .label{
+  display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+  font:600 11px/1.4 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+  padding-bottom:4px;
+}
+.panel .label .opt{font-family:var(--mono); font-size:12px; letter-spacing:.05em}
+.panel .label .fonts{color:var(--text-tertiary); letter-spacing:.06em; font-weight:500; text-transform:none; font-size:11px}
+
+.card{
+  background:var(--w-06); border:1px solid var(--w-08); border-radius:18px;
+  padding:40px 36px; position:relative; overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,.04), 0 12px 36px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.08);
+  flex:1;
+}
+.card::before{
+  content:''; position:absolute; inset:-1px; pointer-events:none; border-radius:inherit;
+  background:radial-gradient(circle at 18% 0%, var(--gold-15), transparent 48%);
+}
+.card > *{position:relative}
+
+.eyebrow{
+  font:600 11px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase;
+  color:var(--text-secondary); margin-bottom:18px;
+}
+
+/* ── NAME ── */
+.name{margin-bottom:18px; line-height:1; color:var(--text-primary)}
+.pos{font-size:15px; line-height:1.55; color:var(--text-secondary); max-width:46ch; margin-bottom:28px}
+
+.divider{height:1px; background:var(--w-08); margin:0 0 22px}
+
+.work-label{font:600 10px/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:14px}
+.work-row{
+  display:grid; grid-template-columns:10px 1fr auto; gap:14px; align-items:center;
+  padding:10px 8px; border-radius:10px;
+}
+.work-row + .work-row{margin-top:2px}
+.work-row:hover{background:var(--w-04)}
+.dot{width:9px; height:9px; border-radius:50%}
+.proj-name{color:var(--text-primary); line-height:1.2}
+.proj-co{font-size:11.5px; color:var(--text-secondary); margin-top:2px}
+.proj-tag{font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-tertiary)}
+
+.lower{display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:end; margin-top:26px}
+@media (max-width:520px){.lower{grid-template-columns:1fr; gap:20px}}
+.stat-num{color:var(--text-primary); line-height:1}
+.stat-label{font-size:11.5px; color:var(--text-secondary); margin-top:6px; line-height:1.4}
+blockquote{color:var(--text-primary); line-height:1.4}
+blockquote .q{color:var(--accent)}
+
+/* ══════════════════════════════════════════════
+   OPTION A — Fraunces serif display + Geist body
+   ══════════════════════════════════════════════ */
+.opt-a .name{
+  font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144;
+  font-size:clamp(2.6rem,4.4vw,3.7rem); letter-spacing:-.035em;
+}
+.opt-a .name em{font-style:italic; color:var(--accent); font-weight:300}
+.opt-a .proj-name{font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 24; font-size:1.05rem; letter-spacing:-.005em}
+.opt-a .stat-num{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144; font-size:2.6rem; letter-spacing:-.02em}
+.opt-a blockquote{font-family:var(--serif); font-weight:300; font-style:italic; font-variation-settings:"opsz" 32; font-size:1.18rem; letter-spacing:-.005em}
+
+/* ══════════════════════════════════════════════
+   OPTION B — Bricolage Grotesque display + Geist body (sans-only)
+   accent = weight + color, no italic
+   ══════════════════════════════════════════════ */
+.opt-b .name{
+  font-family:var(--display-sans); font-weight:500; font-variation-settings:"opsz" 96;
+  font-size:clamp(2.5rem,4.2vw,3.5rem); letter-spacing:-.035em;
+}
+.opt-b .name em{font-style:normal; color:var(--accent); font-weight:600}
+.opt-b .proj-name{font-family:var(--display-sans); font-weight:500; font-size:1.02rem; letter-spacing:-.02em}
+.opt-b .stat-num{font-family:var(--display-sans); font-weight:600; font-size:2.5rem; letter-spacing:-.04em}
+.opt-b blockquote{font-family:var(--sans); font-weight:300; font-size:1.1rem; letter-spacing:-.01em; line-height:1.5}
+.opt-b blockquote .q{font-weight:500}
+
+.note{
+  max-width:1200px; margin:36px auto 0; padding:18px 20px;
+  border:1px solid var(--w-08); border-radius:14px; background:var(--w-04);
+  font-size:12.5px; color:var(--text-secondary); line-height:1.7;
+}
+.note b{color:var(--text-primary); font-weight:600}
+.note .mono{font-family:var(--mono); color:var(--accent); font-size:11.5px}
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="kicker">Typography decision · home hero</div>
+    <h1>Serif pairing <em style="font-style:italic;color:var(--accent)">vs</em> sans-only</h1>
+    <p>Identical content, palette, and layout. Only the type changes. Look at the name, the project names, the big stat, and the quote: that is where the serif currently does its work, and where a sans-only system has to earn its keep through weight and scale instead.</p>
+  </div>
+
+  <div class="compare">
+
+    <!-- ───────── OPTION A ───────── -->
+    <section class="panel opt-a">
+      <div class="label"><span class="opt">Option A</span> <span>Serif pairing</span> <span class="fonts">Fraunces + Geist</span></div>
+      <div class="card">
+        <div class="eyebrow">Lead Product Designer · 10 years · Hyderabad</div>
+        <div class="name">Goutham <em>Motati.</em></div>
+        <p class="pos">Ten years across enterprise software, design systems, and conversion design at scale. Verizon checkout, Honeywell Smart Communities, Indian tax compliance.</p>
+
+        <div class="divider"></div>
+        <div class="work-label">Featured work</div>
+        <div class="work-row">
+          <span class="dot" style="background:#e94b6a"></span>
+          <span><div class="proj-name">Home Internet checkout</div><div class="proj-co">Verizon · YUJ Designs</div></span>
+          <span class="proj-tag">Conversion</span>
+        </div>
+        <div class="work-row">
+          <span class="dot" style="background:#a78bfa"></span>
+          <span><div class="proj-name">Tax Firm Management</div><div class="proj-co">Unpaper · First designer</div></span>
+          <span class="proj-tag">0→1</span>
+        </div>
+
+        <div class="lower">
+          <div><div class="stat-num">10</div><div class="stat-label">Years in UX</div></div>
+          <blockquote><span class="q">&ldquo;</span>Making complex things legible: that&rsquo;s been the through-line across every product.<span class="q">&rdquo;</span></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── OPTION B ───────── -->
+    <section class="panel opt-b">
+      <div class="label"><span class="opt">Option B</span> <span>Sans-only</span> <span class="fonts">Bricolage Grotesque + Geist</span></div>
+      <div class="card">
+        <div class="eyebrow">Lead Product Designer · 10 years · Hyderabad</div>
+        <div class="name">Goutham <em>Motati.</em></div>
+        <p class="pos">Ten years across enterprise software, design systems, and conversion design at scale. Verizon checkout, Honeywell Smart Communities, Indian tax compliance.</p>
+
+        <div class="divider"></div>
+        <div class="work-label">Featured work</div>
+        <div class="work-row">
+          <span class="dot" style="background:#e94b6a"></span>
+          <span><div class="proj-name">Home Internet checkout</div><div class="proj-co">Verizon · YUJ Designs</div></span>
+          <span class="proj-tag">Conversion</span>
+        </div>
+        <div class="work-row">
+          <span class="dot" style="background:#a78bfa"></span>
+          <span><div class="proj-name">Tax Firm Management</div><div class="proj-co">Unpaper · First designer</div></span>
+          <span class="proj-tag">0→1</span>
+        </div>
+
+        <div class="lower">
+          <div><div class="stat-num">10</div><div class="stat-label">Years in UX</div></div>
+          <blockquote><span class="q">&ldquo;</span>Making complex things legible: that&rsquo;s been the through-line across every product.<span class="q">&rdquo;</span></blockquote>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="note">
+    <b>How to read this.</b> Option A keeps the editorial serif/sans contrast: the serif name and quote carry personality, the sans body stays quiet. Option B is sans-only done <i>well</i>: a characterful display grotesque (not a neutral techy sans), accent shifted to <span class="mono">weight + color</span> instead of italic, hierarchy earned through size and weight. Compare the <b>name</b>, <b>project titles</b>, and <b>quote</b> in particular. If B still feels generic to you next to A, that confirms the serif is doing real work. Tell me which wins and I&rsquo;ll apply it to the live site.
+  </div>
+
+</body>
+</html>

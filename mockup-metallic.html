@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metallic card material — A vs B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --obsidian:#0a0a0c; --obsidian-2:#14141a; --obsidian-3:#1a1a22;
+  --w-04:rgba(255,255,255,.04); --w-08:rgba(255,255,255,.08); --w-12:rgba(255,255,255,.12);
+  --border-ghost:var(--w-12);
+  --photo-orange:#f0622e;
+  --maroon:#c2493f;
+  --text-primary:#f6f3ec;
+  --text-secondary:rgba(255,255,255,.65);
+  --text-tertiary:rgba(255,255,255,.45);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Geist',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+  --r-lg:18px;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{height:100%}
+body{
+  background:var(--obsidian);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(199,72,61,.045), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(240,98,46,.025), transparent 60%);
+  color:var(--text-primary);
+  font-family:var(--sans);
+  min-height:100vh;
+  padding:64px 40px 80px;
+}
+.lab{max-width:1320px; margin:0 auto}
+.lab-head{text-align:center; margin-bottom:56px}
+.lab-head .kicker{
+  font:600 10px/1 var(--sans); letter-spacing:.22em; text-transform:uppercase;
+  color:var(--photo-orange); margin-bottom:14px;
+}
+.lab-head h1{
+  font-family:var(--serif); font-weight:300;
+  font-variation-settings:"opsz" 144;
+  font-size:clamp(2rem,3.4vw,2.8rem); line-height:1.1; letter-spacing:-.02em;
+}
+.lab-head h1 em{color:var(--photo-orange); font-style:italic; font-weight:300}
+.lab-head p{
+  color:var(--text-secondary); font-size:13.5px; margin-top:14px;
+  max-width:580px; margin-left:auto; margin-right:auto; line-height:1.6;
+}
+
+.compare{display:grid; grid-template-columns:1fr 1fr; gap:36px}
+@media (max-width:900px){.compare{grid-template-columns:1fr}}
+
+.col-head{display:flex; align-items:baseline; gap:14px; margin-bottom:16px; padding-left:2px}
+.col-tag{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--photo-orange); padding:4px 8px; border:1px solid rgba(240,98,46,.4); border-radius:4px;
+}
+.col-name{
+  font-family:var(--serif); font-weight:400; font-size:1.5rem; line-height:1.15;
+  letter-spacing:-.015em; color:var(--text-primary);
+}
+.col-desc{
+  font-size:12px; color:var(--text-tertiary); line-height:1.55;
+  margin:0 0 18px; padding-left:2px; max-width:520px;
+}
+
+/* ── Card base — both versions share this ── */
+.card{
+  position:relative; overflow:hidden;
+  border-radius:var(--r-lg);
+  padding:34px;
+  min-height:340px;
+  border:1px solid var(--border-ghost);
+  display:flex; flex-direction:column;
+}
+.card > *{position:relative; z-index:2}
+.card-eyebrow{
+  font:600 10px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase;
+  color:var(--text-tertiary);
+}
+.card-title{
+  font-family:var(--serif); font-weight:300;
+  font-variation-settings:"opsz" 36;
+  font-size:1.85rem; line-height:1.12; letter-spacing:-.018em;
+  margin-top:14px; color:var(--text-primary);
+}
+.card-body{
+  font-size:13.5px; line-height:1.6; color:var(--text-secondary);
+  margin-top:16px; max-width:42ch;
+}
+.card-meta{
+  margin-top:auto; padding-top:24px;
+  display:flex; flex-wrap:wrap; gap:6px 22px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-tertiary);
+}
+.card-meta span{white-space:nowrap}
+.card-meta b{font-weight:500; color:var(--text-secondary); margin-left:6px}
+
+/* ─────────────────────────────────────────── */
+/* VERSION A — Brushed gunmetal               */
+/* ─────────────────────────────────────────── */
+.v-gunmetal{
+  background-color:#15181d;
+  background-image:
+    /* horizontal anisotropic grain (the brushed effect) — punched 2x */
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,.040) 0 1px,
+      transparent 1px 2px),
+    /* base vertical gradient — slightly cool */
+    linear-gradient(178deg, #1b1e23 0%, #15171c 65%, #11131a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(190,210,230,.10),    /* cool top-edge light */
+    inset 0 -1px 0 rgba(0,0,0,.45),         /* bottom-edge shade */
+    inset 1px 0 0 rgba(255,255,255,.02),    /* left-edge whisper */
+    inset -1px 0 0 rgba(0,0,0,.22);         /* right-edge shade */
+}
+/* Fractal-noise overlay — tactile metal grain, now clearer */
+.v-gunmetal::before{
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .65 0'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay; opacity:.85;
+}
+
+/* ─────────────────────────────────────────── */
+/* VERSION B — Polished slate                 */
+/* ─────────────────────────────────────────── */
+.v-slate{
+  background-color:#15151c;
+  background-image:
+    /* single light-source suggestion from top */
+    radial-gradient(ellipse 200% 90% at 50% -25%, rgba(255,235,220,.045), transparent 65%),
+    /* base vertical gradient — slightly warm */
+    linear-gradient(180deg, #1c1c23 0%, #15151b 65%, #0f0f15 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,235,220,.08),    /* warm top-edge sheen */
+    inset 0 -1px 0 rgba(0,0,0,.42);         /* bottom-edge shade */
+}
+/* Narrow polished sheen across the top */
+.v-slate::before{
+  content:''; position:absolute; top:0; left:8%; right:8%; height:1px; z-index:1;
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(255,240,225,.22) 30%,
+    rgba(255,240,225,.22) 70%,
+    transparent);
+  pointer-events:none;
+}
+
+.footnote{
+  margin-top:64px; padding-top:32px; border-top:1px solid var(--border-ghost);
+  display:grid; grid-template-columns:1fr 1fr; gap:36px;
+  font-size:12px; color:var(--text-tertiary); line-height:1.7;
+}
+@media (max-width:900px){.footnote{grid-template-columns:1fr}}
+.footnote h4{
+  font:600 10px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase;
+  color:var(--text-secondary); margin-bottom:8px;
+}
+.footnote code{
+  font-family:var(--mono); font-size:11px; color:var(--text-secondary);
+  background:rgba(255,255,255,.04); padding:2px 6px; border-radius:4px;
+}
+.notes{
+  margin-top:32px; text-align:center; font-size:11.5px; color:var(--text-tertiary);
+  line-height:1.7;
+}
+</style>
+</head>
+<body>
+<div class="lab">
+
+  <div class="lab-head">
+    <div class="kicker">Material mockup · pick one</div>
+    <h1>Metallic body, <em>same card</em>, two surfaces.</h1>
+    <p>Identical hairline border, identical content. The only difference is the body material treatment. Open both, look away, look back. The one your eye returns to is the answer.</p>
+  </div>
+
+  <div class="compare">
+
+    <!-- ─── A: Brushed Gunmetal ─── -->
+    <div>
+      <div class="col-head">
+        <span class="col-tag">A</span>
+        <span class="col-name">Brushed gunmetal</span>
+      </div>
+      <p class="col-desc">Anisotropic horizontal grain, cool top-edge light, fractal-noise overlay. Reads as a precision-milled metal plate.</p>
+      <div class="card v-gunmetal">
+        <div class="card-eyebrow">What I do</div>
+        <h3 class="card-title">Capabilities</h3>
+        <p class="card-body">Conversion design, design systems, 0&rarr;1 product, enterprise UX, user research, prototyping. Ten years of dense product work.</p>
+        <div class="card-meta">
+          <span>SCALE<b>10+ yrs</b></span>
+          <span>SCOPE<b>End-to-end</b></span>
+          <span>LOC<b>Hyderabad, IN</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── B: Polished Slate ─── -->
+    <div>
+      <div class="col-head">
+        <span class="col-tag">B</span>
+        <span class="col-name">Polished slate</span>
+      </div>
+      <p class="col-desc">Smooth top-down gradient, single warm light source, hairline top sheen. Reads as a polished stone panel under one lamp.</p>
+      <div class="card v-slate">
+        <div class="card-eyebrow">What I do</div>
+        <h3 class="card-title">Capabilities</h3>
+        <p class="card-body">Conversion design, design systems, 0&rarr;1 product, enterprise UX, user research, prototyping. Ten years of dense product work.</p>
+        <div class="card-meta">
+          <span>SCALE<b>10+ yrs</b></span>
+          <span>SCOPE<b>End-to-end</b></span>
+          <span>LOC<b>Hyderabad, IN</b></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footnote">
+    <div>
+      <h4>A — Brushed gunmetal</h4>
+      <code>repeating-linear-gradient(90deg, .018 white, 1px stripes)</code>
+      <br>+ cool inset top highlight <code>rgba(190,210,230,.10)</code>
+      <br>+ SVG fractal-noise overlay at <code>mix-blend-mode: overlay</code>
+      <br>+ four-edge inset shadows (top/bottom/left/right) for chiselled feel
+    </div>
+    <div>
+      <h4>B — Polished slate</h4>
+      <code>radial-gradient(... at 50% -25%, .045 warm)</code>
+      <br>+ warm inset top sheen <code>rgba(255,235,220,.08)</code>
+      <br>+ narrow horizontal highlight line across the top edge
+      <br>+ no grain, no noise — smooth dielectric surface
+    </div>
+  </div>
+
+  <p class="notes">
+    Both keep the hairline border <code>1px solid var(--border-ghost)</code> and no outer drop-shadow, so the &ldquo;carved&rdquo; direction is preserved.<br>
+    Reload to refresh fonts. Open this file at <code>file:///Users/gouthamreddy/Documents/Claude/Projects/Portfolio/mockup-metallic.html</code>
+  </p>
+
+</div>
+</body>
+</html>

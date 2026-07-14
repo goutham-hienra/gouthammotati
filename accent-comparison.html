@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Accent Comparison — Platinum vs Ember vs Maroon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --obsidian:#0a0a0c; --obsidian-2:#131319; --obsidian-3:#191921;
+  --white:#f6f3ec;
+  --w-62:rgba(255,255,255,.62); --w-42:rgba(255,255,255,.42); --w-08:rgba(255,255,255,.08); --w-04:rgba(255,255,255,.04);
+  --serif:'Fraunces',Georgia,serif; --sans:'Geist',system-ui,sans-serif; --mono:'JetBrains Mono',Menlo,monospace;
+  --t-fast:200ms cubic-bezier(.16,1,.3,1);
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+body{
+  font-family:var(--sans); background:var(--obsidian); color:var(--white);
+  -webkit-font-smoothing:antialiased; min-height:100vh; padding:28px 24px 70px;
+  font-feature-settings:"ss01" on;
+}
+
+/* ── theme accent tokens (only these change between columns) ── */
+.theme-platinum{
+  --accent:#c9cfd9; --accent-soft:rgba(201,207,217,.34);
+  --spark:#e2e7ef; --glow:rgba(201,212,228,.13); --focal-text:#1a1d22;
+}
+.theme-ember{
+  --accent:#c9cfd9; --accent-soft:rgba(201,207,217,.30);   /* neutral platinum base */
+  --spark:#ec6a4e; --glow:rgba(236,106,78,.15); --focal-text:#f6f3ec;  /* ember used only as punctuation */
+}
+.theme-maroon{
+  --accent:#c2493f; --accent-soft:rgba(194,73,63,.40);
+  --spark:#d2564a; --glow:rgba(194,73,63,.22); --focal-text:#f6e6e3;
+}
+
+/* ── page head ── */
+.page-head{max-width:1320px; margin:0 auto 26px}
+.page-head .k{font:600 11px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--w-42); margin-bottom:12px}
+.page-head h1{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 72; font-size:clamp(1.7rem,3vw,2.3rem); letter-spacing:-.02em; line-height:1.1}
+.page-head p{font-size:13.5px; color:var(--w-62); line-height:1.65; max-width:74ch; margin-top:10px}
+.page-head .hint{font-size:12px; color:var(--w-42); margin-top:8px}
+
+/* ── 3-up layout ── */
+.three{max-width:1320px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(380px,1fr)); gap:20px}
+@media (max-width:1180px){.three{grid-template-columns:1fr; max-width:560px}}
+
+.col-label{display:flex; align-items:baseline; gap:9px; margin-bottom:12px; flex-wrap:wrap}
+.col-label .tag{font:600 11px/1 var(--mono); letter-spacing:.05em; color:var(--spark); border:1px solid var(--accent-soft); border-radius:6px; padding:4px 7px}
+.col-label .nm{font:600 13px/1.3 var(--sans); letter-spacing:.01em; color:var(--white)}
+.col-label .sub{font-size:11.5px; color:var(--w-42)}
+
+/* ── frame ── */
+.frame{background:rgba(255,255,255,.012); border:1px solid var(--w-08); border-radius:22px; padding:16px}
+
+/* mini nav */
+.nav{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 14px; border:1px solid var(--w-08); border-radius:100px; background:rgba(255,255,255,.04); margin-bottom:18px}
+.nav .brand{font-family:var(--serif); font-weight:400; font-variation-settings:"opsz" 24; font-size:13.5px; letter-spacing:-.01em}
+.nav .brand em{font-style:italic; color:var(--spark)}
+.nav .links{display:flex; gap:3px}
+.nav a{font:500 11px/1 var(--sans); color:var(--w-62); padding:6px 10px; border-radius:100px; text-decoration:none}
+.nav a.active{color:var(--spark); background:rgba(255,255,255,.05)}
+
+/* header outside grid */
+.intro{text-align:center; padding:22px 8px 26px}
+.intro .kicker{display:inline-flex; align-items:center; gap:8px; font:600 9.5px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--w-62); padding:6px 12px; border:1px solid var(--w-08); border-radius:100px; background:var(--obsidian-2); margin-bottom:16px}
+.intro .kicker .mark{width:12px;height:12px;border-radius:4px;background:var(--accent)}
+.intro h1{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144; font-size:clamp(2rem,3.4vw,2.7rem); line-height:1.05; letter-spacing:-.035em}
+.intro h1 em{font-style:italic; color:var(--spark); font-weight:300}
+.intro p{font-size:13px; color:var(--w-62); line-height:1.6; max-width:42ch; margin:14px auto 0}
+
+/* mini bento */
+.bento{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+.cell{position:relative; overflow:hidden; background:var(--obsidian-2); border:1px solid var(--w-08); border-radius:16px; box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 10px 30px rgba(0,0,0,.42); padding:20px}
+.cell>*{position:relative; z-index:2}
+.glow::after{content:''; position:absolute; z-index:1; inset:0; border-radius:inherit; background:radial-gradient(ellipse 72% 82% at 14% 0%, var(--glow), transparent 56%)}
+.glow.br::after{background:radial-gradient(ellipse 78% 84% at 88% 100%, var(--glow), transparent 58%)}
+
+.ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--obsidian-3);border:1px solid var(--w-08);color:var(--accent);margin-bottom:14px}
+.ico svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6}
+.eyebrow{font:600 9.5px/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--w-42); margin-bottom:10px}
+.cell h3{font-family:var(--serif);font-weight:400;font-variation-settings:"opsz" 24;font-size:1.02rem;letter-spacing:-.005em;margin-bottom:6px}
+.cell p.body{font-size:12px;color:var(--w-62);line-height:1.55}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font:500 11px/1 var(--sans);color:var(--accent);text-decoration:none}
+.more svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.7}
+
+.c-hero{grid-column:span 2; padding:26px 24px}
+.c-hero .name{font-family:var(--serif);font-weight:300;font-variation-settings:"opsz" 144;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1;letter-spacing:-.035em;margin-bottom:14px}
+.c-hero .name em{font-style:italic;color:var(--spark)}
+.c-hero .lead{font-size:12.5px;line-height:1.55;color:var(--w-62);max-width:42ch;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:10px;font-weight:500;color:var(--w-62);background:var(--w-04);border:1px solid var(--w-08);padding:4px 10px;border-radius:100px}
+.chip.accent{color:var(--accent);border-color:var(--accent-soft);background:rgba(255,255,255,.03)}
+
+.c-work{grid-column:span 1; min-height:188px}
+.work-shot{position:absolute; z-index:1; right:-34px; bottom:-22px; width:172px; border-radius:10px; background:linear-gradient(165deg,#20202a,#101016); border:1px solid rgba(255,255,255,.09); box-shadow:0 18px 44px rgba(0,0,0,.55); overflow:hidden}
+.work-shot .bar{height:24px;display:flex;align-items:center;gap:5px;padding:0 10px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06)}
+.work-shot .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.16)}
+.work-shot .pane{padding:11px;display:flex;flex-direction:column;gap:7px}
+.work-shot .ln{height:7px;border-radius:4px;background:rgba(255,255,255,.07)}
+.work-shot .ln.a{width:46%;background:var(--accent-soft)} .work-shot .ln.b{width:86%} .work-shot .ln.c{width:64%}
+.ph-label{position:absolute;z-index:3;left:16px;bottom:12px;font:600 8px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--w-42);background:rgba(10,10,12,.6);padding:4px 7px;border-radius:5px;border:1px solid var(--w-08)}
+
+.c-focal{grid-column:span 1; display:flex; align-items:flex-end; min-height:188px}
+.c-focal q{font-family:var(--serif);font-weight:400;font-style:italic;font-variation-settings:"opsz" 30;font-size:1.06rem;line-height:1.32;letter-spacing:-.01em;color:var(--focal-text);quotes:"\201C" "\201D"}
+.spark-line{display:none}
+
+.c-skills{grid-column:span 1; display:flex; flex-direction:column}
+.c-skills h3{align-self:flex-start; margin-bottom:2px}
+.c-skills svg{width:100%;max-width:170px;aspect-ratio:1;margin:auto}
+.c-stat{grid-column:span 1}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-num{font-family:var(--serif);font-weight:300;font-variation-settings:"opsz" 144;font-size:1.9rem;line-height:1;letter-spacing:-.02em;color:var(--white)}
+.stat-label{font-size:10px;color:var(--w-62);margin-top:4px}
+
+/* ── theme-specific focal tile treatments ── */
+.theme-platinum .c-focal{background:linear-gradient(135deg,#373c45 0%,#b4bbc7 47%,#5d636d 100%); border-color:rgba(255,255,255,.16)}
+.theme-platinum .c-focal::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%)}
+
+.theme-ember .c-focal{background:#0d0d10; border-color:rgba(236,106,78,.22); align-items:center; justify-content:center; text-align:center; flex-direction:column; gap:18px}
+.theme-ember .spark-line{display:block; position:relative; width:100%; height:1px; background:linear-gradient(90deg,transparent,rgba(236,106,78,.55) 35%,rgba(236,106,78,.9) 50%,rgba(236,106,78,.55) 65%,transparent); box-shadow:0 0 22px 2px rgba(236,106,78,.45)}
+.theme-ember .spark-line span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#0d0d10;padding:0 10px;font:600 9px/1 var(--mono);letter-spacing:.18em;color:var(--spark)}
+
+.theme-maroon .c-focal{background:linear-gradient(150deg,#5c1f1b 0%,#9e3a32 52%,#6b241e 100%); border-color:rgba(255,180,170,.16)}
+.theme-maroon .c-focal::before{content:'';position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 1px,transparent 1px 10px)}
+
+.foot{max-width:1320px;margin:28px auto 0;padding:16px 18px;border:1px solid var(--w-08);border-radius:14px;background:var(--w-04);font-size:12.5px;color:var(--w-62);line-height:1.7}
+.foot b{color:var(--white)} .foot .m{font-family:var(--mono);font-size:11px;color:var(--w-62)}
+</style>
+</head>
+<body>
+
+  <div class="page-head">
+    <div class="k">Accent decision · home</div>
+    <h1>Platinum, ember, or maroon</h1>
+    <p>Same composition, neutrals, and layout in all three. Only the accent changes: name emphasis, corner glows, focal tile, active nav, and the placeholder accent line. Gold is off the table. Compare the <b>name</b>, the <b>focal tile</b>, the <b>glows</b>, and overall temperature.</p>
+    <p class="hint">Best viewed on a wide screen. Columns stack below 1180px. All three files (index.html, the home preview, this) are separate, nothing live changed.</p>
+  </div>
+
+  <div class="three">
+
+    <!-- ════ A · PLATINUM ════ -->
+    <div class="col theme-platinum">
+      <div class="col-label"><span class="tag">A</span> <span class="nm">Pure platinum</span> <span class="sub">monochrome, no chroma, metal carries it</span></div>
+      <div class="frame">
+        <nav class="nav"><span class="brand">Goutham <em>Motati.</em></span><span class="links"><a class="active">Home</a><a>Work</a><a>About</a></span></nav>
+        <header class="intro"><span class="kicker"><span class="mark"></span>Lead Product Designer</span><h1>Making complex things <em>legible</em>.</h1><p>The complexity changed. The craft didn&rsquo;t.</p></header>
+        <div class="bento">
+          <section class="cell c-hero glow">
+            <div class="name">Goutham <em>Motati.</em></div>
+            <p class="lead">Ten years across enterprise software, design systems, and conversion design at scale.</p>
+            <div class="chips"><span class="chip accent">Conversion at scale</span><span class="chip">Design systems</span><span class="chip">0→1</span></div>
+          </section>
+          <section class="cell c-work glow br">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></div>
+            <h3>Featured work</h3><p class="body">Four case studies.</p><a class="more">View work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <div class="work-shot"><div class="bar"><i></i><i></i><i></i></div><div class="pane"><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div></div></div>
+            <span class="ph-label">Placeholder</span>
+          </section>
+          <section class="cell c-focal"><div class="spark-line"><span>AI</span></div><q>Telecom checkouts, command centers, tax compliance, dealer CRMs.</q></section>
+          <section class="cell c-skills"><h3>Specializations</h3>
+            <svg viewBox="0 0 400 400"><g transform="translate(200,200)">
+              <polygon points="0,-112 106.5,-34.6 65.9,90.6 -65.9,90.6 -106.5,-34.6" fill="none" stroke="rgba(255,255,255,.08)"/>
+              <polygon points="0,-140 133.2,-43.3 82.3,113.3 -82.3,113.3 -133.2,-43.3" fill="none" stroke="var(--accent-soft)"/>
+              <polygon points="0,-140 133.2,-43.3 65.9,90.6 -82.3,113.3 -106.5,-34.6" fill="rgba(255,255,255,.05)" stroke="var(--accent)" stroke-width="1.4"/>
+              <circle cx="0" cy="-140" r="3" fill="var(--accent)"/><circle cx="133.2" cy="-43.3" r="3" fill="var(--accent)"/><circle cx="65.9" cy="90.6" r="3" fill="var(--accent)"/><circle cx="-82.3" cy="113.3" r="3" fill="var(--accent)"/><circle cx="-106.5" cy="-34.6" r="3" fill="var(--accent)"/>
+            </g></svg>
+          </section>
+          <section class="cell c-stat"><div class="eyebrow">By the numbers</div><div class="stat-row"><div><div class="stat-num">10</div><div class="stat-label">Years</div></div><div><div class="stat-num">4</div><div class="stat-label">Companies</div></div></div></section>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ B · PLATINUM + EMBER ════ -->
+    <div class="col theme-ember">
+      <div class="col-label"><span class="tag">B</span> <span class="nm">Platinum + ember</span> <span class="sub">monochrome base, rare warm spark</span></div>
+      <div class="frame">
+        <nav class="nav"><span class="brand">Goutham <em>Motati.</em></span><span class="links"><a class="active">Home</a><a>Work</a><a>About</a></span></nav>
+        <header class="intro"><span class="kicker"><span class="mark"></span>Lead Product Designer</span><h1>Making complex things <em>legible</em>.</h1><p>The complexity changed. The craft didn&rsquo;t.</p></header>
+        <div class="bento">
+          <section class="cell c-hero glow">
+            <div class="name">Goutham <em>Motati.</em></div>
+            <p class="lead">Ten years across enterprise software, design systems, and conversion design at scale.</p>
+            <div class="chips"><span class="chip accent">Conversion at scale</span><span class="chip">Design systems</span><span class="chip">0→1</span></div>
+          </section>
+          <section class="cell c-work glow br">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></div>
+            <h3>Featured work</h3><p class="body">Four case studies.</p><a class="more">View work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <div class="work-shot"><div class="bar"><i></i><i></i><i></i></div><div class="pane"><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div></div></div>
+            <span class="ph-label">Placeholder</span>
+          </section>
+          <section class="cell c-focal"><div class="spark-line"><span>AI</span></div><q>Telecom checkouts, command centers, tax compliance, dealer CRMs.</q></section>
+          <section class="cell c-skills"><h3>Specializations</h3>
+            <svg viewBox="0 0 400 400"><g transform="translate(200,200)">
+              <polygon points="0,-112 106.5,-34.6 65.9,90.6 -65.9,90.6 -106.5,-34.6" fill="none" stroke="rgba(255,255,255,.08)"/>
+              <polygon points="0,-140 133.2,-43.3 82.3,113.3 -82.3,113.3 -133.2,-43.3" fill="none" stroke="var(--accent-soft)"/>
+              <polygon points="0,-140 133.2,-43.3 65.9,90.6 -82.3,113.3 -106.5,-34.6" fill="rgba(255,255,255,.05)" stroke="var(--accent)" stroke-width="1.4"/>
+              <circle cx="0" cy="-140" r="3" fill="var(--accent)"/><circle cx="133.2" cy="-43.3" r="3" fill="var(--accent)"/><circle cx="65.9" cy="90.6" r="3" fill="var(--accent)"/><circle cx="-82.3" cy="113.3" r="3" fill="var(--accent)"/><circle cx="-106.5" cy="-34.6" r="3" fill="var(--accent)"/>
+            </g></svg>
+          </section>
+          <section class="cell c-stat"><div class="eyebrow">By the numbers</div><div class="stat-row"><div><div class="stat-num">10</div><div class="stat-label">Years</div></div><div><div class="stat-num">4</div><div class="stat-label">Companies</div></div></div></section>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ C · MAROON ════ -->
+    <div class="col theme-maroon">
+      <div class="col-label"><span class="tag">C</span> <span class="nm">Committed maroon</span> <span class="sub">warm red carries the brand</span></div>
+      <div class="frame">
+        <nav class="nav"><span class="brand">Goutham <em>Motati.</em></span><span class="links"><a class="active">Home</a><a>Work</a><a>About</a></span></nav>
+        <header class="intro"><span class="kicker"><span class="mark"></span>Lead Product Designer</span><h1>Making complex things <em>legible</em>.</h1><p>The complexity changed. The craft didn&rsquo;t.</p></header>
+        <div class="bento">
+          <section class="cell c-hero glow">
+            <div class="name">Goutham <em>Motati.</em></div>
+            <p class="lead">Ten years across enterprise software, design systems, and conversion design at scale.</p>
+            <div class="chips"><span class="chip accent">Conversion at scale</span><span class="chip">Design systems</span><span class="chip">0→1</span></div>
+          </section>
+          <section class="cell c-work glow br">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></div>
+            <h3>Featured work</h3><p class="body">Four case studies.</p><a class="more">View work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <div class="work-shot"><div class="bar"><i></i><i></i><i></i></div><div class="pane"><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div></div></div>
+            <span class="ph-label">Placeholder</span>
+          </section>
+          <section class="cell c-focal"><div class="spark-line"><span>AI</span></div><q>Telecom checkouts, command centers, tax compliance, dealer CRMs.</q></section>
+          <section class="cell c-skills"><h3>Specializations</h3>
+            <svg viewBox="0 0 400 400"><g transform="translate(200,200)">
+              <polygon points="0,-112 106.5,-34.6 65.9,90.6 -65.9,90.6 -106.5,-34.6" fill="none" stroke="rgba(255,255,255,.08)"/>
+              <polygon points="0,-140 133.2,-43.3 82.3,113.3 -82.3,113.3 -133.2,-43.3" fill="none" stroke="var(--accent-soft)"/>
+              <polygon points="0,-140 133.2,-43.3 65.9,90.6 -82.3,113.3 -106.5,-34.6" fill="rgba(194,73,63,.12)" stroke="var(--accent)" stroke-width="1.4"/>
+              <circle cx="0" cy="-140" r="3" fill="var(--accent)"/><circle cx="133.2" cy="-43.3" r="3" fill="var(--accent)"/><circle cx="65.9" cy="90.6" r="3" fill="var(--accent)"/><circle cx="-82.3" cy="113.3" r="3" fill="var(--accent)"/><circle cx="-106.5" cy="-34.6" r="3" fill="var(--accent)"/>
+            </g></svg>
+          </section>
+          <section class="cell c-stat"><div class="eyebrow">By the numbers</div><div class="stat-row"><div><div class="stat-num">10</div><div class="stat-label">Years</div></div><div><div class="stat-num">4</div><div class="stat-label">Companies</div></div></div></section>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <b>A · Platinum:</b> no hue at all, emphasis comes from value (lighter silver on the name) and the brushed-metal focal tile. Coldest, most precise, most dependent on type craft. <b>B · Platinum + ember:</b> same neutral base, with a warm coral spark used only on the name, active nav, glows, and a Raycast-style glowing divider in the focal tile. Warmth without a loud color. <b>C · Maroon:</b> a committed warm red carrying the name, glows, and a deep-red focal tile. Most assertive, also the most Raycast-coded. <span class="m">Tell me which, and whether to dial the spark up or down, then I port it.</span>
+  </div>
+
+</body>
+</html>
