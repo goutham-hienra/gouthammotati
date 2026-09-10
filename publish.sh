@@ -28,7 +28,9 @@ fi
 
 # --- 1. Leak guard: private design-workspace material never goes public ----
 PRIVATE='(^|/)(Knowledge Base|Sessions|Case Studies|Projects)(/|$)|_session-context\.md$|\.case-study\.md$|(^|/)\.env$'
-LEAK="$(git status --porcelain --untracked-files=all | cut -c4- | sed 's/^"//; s/"$//' | grep -E "$PRIVATE" || true)"
+# --ignored: .gitignore already blocks these from being committed, but their mere
+# presence inside the public repo folder is a footgun, so refuse until they are moved.
+LEAK="$(git status --porcelain --ignored --untracked-files=all | cut -c4- | sed 's/^"//; s/"$//' | grep -E "$PRIVATE" || true)"
 if [[ -n "$LEAK" ]]; then
   echo "✗ Refusing to publish — private paths found in the working tree:" >&2
   echo "$LEAK" | sed 's/^/    /' >&2
@@ -51,6 +53,13 @@ else
     echo "• dry-run: would commit \"$MSG\" and push to origin/$BRANCH"; exit 0
   fi
   git add -A
+  # belt and braces: nothing private may be in the staged set (covers an edited .gitignore)
+  STAGED_LEAK="$(git diff --cached --name-only | grep -E "$PRIVATE" || true)"
+  if [[ -n "$STAGED_LEAK" ]]; then
+    git reset -q
+    echo "✗ Refusing to publish — private paths are staged:" >&2
+    echo "$STAGED_LEAK" | sed 's/^/    /' >&2; exit 1
+  fi
   git commit -q -m "$MSG"
   echo "✓ Committed $(git rev-parse --short HEAD): $MSG"
 fi
