@@ -1,3 +1,12 @@
 .DS_Store
 *.log
 node_modules/
+
+# Private design workspace material — must never reach the public site
+Knowledge Base/
+Sessions/
+Case Studies/
+Projects/
+*_session-context.md
+*.case-study.md
+.env
