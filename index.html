@@ -316,10 +316,10 @@ main{padding:48px var(--page-x) 80px}
 .case-meta{display:flex; flex-direction:column; gap:3px}
 .case-name{font:600 10px/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--text-secondary)}
 .case-year{font-family:var(--mono); font-size:10px; color:var(--text-tertiary); letter-spacing:.04em}
-.case-arrow{width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:var(--w-04); border:1px solid var(--border-ghost); color:var(--text-secondary); transition:background var(--t-fast), border-color var(--t-fast), color var(--t-fast); flex-shrink:0}
-.case-arrow svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:transform var(--t-fast)}
-.c-case:hover .case-arrow{background:var(--maroon-15); border-color:var(--border-strong); color:var(--accent)}
-.c-case:hover .case-arrow svg{transform:translateX(2px)}
+.case-cta{flex-shrink:0; display:inline-flex; align-items:center; gap:7px; font:500 12.5px/1 var(--sans); letter-spacing:-.005em; color:var(--text-secondary); padding:9px 15px; border:1px solid var(--border-ghost); border-radius:var(--r-pill); background:var(--w-04); white-space:nowrap; transition:color var(--t-fast), border-color var(--t-fast), background var(--t-fast)}
+.case-cta svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:transform var(--t-fast)}
+.c-case:hover .case-cta{color:var(--accent); border-color:var(--border-strong); background:var(--maroon-15)}
+.c-case:hover .case-cta svg{transform:translateX(2px)}
 /* Coming-soon state — case page not built yet (no active CTA) */
 .case-soon{flex-shrink:0; display:inline-flex; align-items:center; gap:6px; font:600 9px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); padding:6px 11px; border:1px solid var(--border-ghost); border-radius:var(--r-pill); background:var(--w-04); white-space:nowrap}
 .c-case-coming{cursor:default}
@@ -806,7 +806,7 @@ main{padding:48px var(--page-x) 80px}
             <span class="case-name">Verizon</span>
             <span class="case-year">2021–2025</span>
           </div>
-          <span class="case-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="case-cta">View case study <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
         <h3 class="case-title">Checkout Overhaul</h3>
         <p class="case-desc">Two-track redesign of a 6-step Home Internet funnel inside a 20-year-old platform.</p>
