@@ -212,6 +212,8 @@ main{padding:48px var(--page-x) 80px}
 .intro .kicker{display:inline-flex; align-items:center; gap:9px; font:600 11px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--text-secondary); padding:7px 14px; border:var(--cell-border); border-radius:var(--r-pill); background:var(--obsidian-2); margin-bottom:26px}
 .intro h1{font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-display); font-size:clamp(2.6rem,5.4vw,4.4rem); line-height:1.04; letter-spacing:-.035em}
 .intro h1 em{font-style:italic; color:var(--accent); font-weight:300}
+.intro .kicker .ai-mark{width:14px; height:14px; display:block; flex-shrink:0; filter:drop-shadow(0 0 6px rgba(212,175,111,.6))}
+
 .intro p{font-size:15.5px; line-height:1.65; color:var(--text-secondary); max-width:60ch; margin:22px auto 0}
 
 /* glowing maroon hairline divider (used once) */
@@ -366,7 +368,6 @@ main{padding:48px var(--page-x) 80px}
 @media (max-width:980px){.work-grid{grid-template-columns:1fr}}
 .c-work .c-case{border-radius:var(--r-md)}
 .exp-title{font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-heading); font-size:clamp(1.5rem,2vw,1.95rem); line-height:1.1; letter-spacing:-.02em; color:var(--text-primary)}
-.exp-sub{font-size:13px; color:var(--text-secondary); line-height:1.5; margin-top:8px}
 .co-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px; flex:1}
 .co-tile{display:flex; flex-direction:column; gap:8px; min-height:112px; padding:14px 15px; border-radius:12px; background:var(--w-04); border:1px solid var(--border-ghost); transition:background var(--t-fast), border-color var(--t-fast), transform var(--t-fast)}
 .co-tile:hover{background:var(--w-06); border-color:var(--border-strong)}
@@ -768,7 +769,8 @@ main{padding:48px var(--page-x) 80px}
 
   /* ── hero: centred, avatar, chips, one action ── */
   .c-hero{padding:22px 18px 18px; text-align:center; align-items:center; transform:none; will-change:auto}
-  .li-photo{width:72px; height:72px; aspect-ratio:1 / 1; border-radius:50%; object-position:center 20%; transform:none; margin:0 auto; flex:0 0 auto}
+  .li-photo-wrap{display:block; width:100%; align-self:stretch}
+  .li-photo{width:100%; height:auto; aspect-ratio:2 / 1; border-radius:12px; object-position:center 20%; transform:none; margin:0}
   .li-name{justify-content:center; margin-top:14px; font-size:1.8rem}
   .li-title{margin-top:6px; font-size:14.5px}
   .li-spec{margin-top:4px}
@@ -805,7 +807,6 @@ main{padding:48px var(--page-x) 80px}
 
   /* ── companies: 2 columns, name first ── */
   .exp-title{font-size:1.4rem}
-  .exp-sub{font-size:12.5px}
   .co-grid{grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px}
   .co-tile{min-height:0; padding:12px; gap:6px}
   .co-logo{display:none}
@@ -894,7 +895,7 @@ main{padding:48px var(--page-x) 80px}
 /* ── intro (home hero) on phones — 2026-09-15 ── */
 @media (max-width:640px){
   .intro{padding:22px 0 14px}
-  .intro .kicker{margin-bottom:16px; font-size:10px; letter-spacing:.16em}
+  .intro .kicker{margin-bottom:16px; font-size:9.5px; letter-spacing:.14em; max-width:100%; white-space:normal; text-align:center; line-height:1.5}
   .intro h1{font-size:clamp(1.9rem,8.4vw,2.4rem); letter-spacing:-.03em; line-height:1.08}
   .intro p{font-size:14px; margin-top:14px}
   .spark-divider{margin:4px auto 22px}
@@ -927,9 +928,8 @@ main{padding:48px var(--page-x) 80px}
   <!-- ═══════════════════ HOME ═══════════════════ -->
   <section class="page active" id="home">
     <header class="intro">
-      <span class="kicker">Lead Product Designer</span>
+      <span class="kicker"><svg class="ai-mark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path class="s1" d="M10 1.5C10.7 6.3 13.7 9.3 18.5 10C13.7 10.7 10.7 13.7 10 18.5C9.3 13.7 6.3 10.7 1.5 10C6.3 9.3 9.3 6.3 10 1.5Z" fill="#d4af6f"/><path class="s2" d="M16.2 1.2C16.4 2.6 17.2 3.4 18.6 3.6C17.2 3.8 16.4 4.6 16.2 6C16 4.6 15.2 3.8 13.8 3.6C15.2 3.4 16 2.6 16.2 1.2Z" fill="#d4af6f"/></svg>AI-powered product designer</span>
       <h1>Ten years of enterprise UX. Now shipping at <em>AI speed</em>.</h1>
-      <p>I design in code and ship without a handoff. The complexity changed. The craft didn't.</p>
     </header>
     <div class="spark-divider"></div>
 
@@ -937,7 +937,7 @@ main{padding:48px var(--page-x) 80px}
 
       <!-- hero (profile card) -->
       <section class="cell c-hero">
-        <img class="li-photo" src="profile.png" srcset="assets/profile-sm.png 256w, profile.png 1254w" sizes="(max-width:640px) 72px, 40vw" alt="Goutham Motati, Product Designer Lead"/>
+        <picture class="li-photo-wrap"><source media="(max-width:640px)" srcset="assets/profile-md.jpg"/><img class="li-photo" src="profile.png" alt="Goutham Motati, Product Designer Lead"/></picture>
         <div class="li-name">Goutham Motati
         </div>
         <div class="li-title">Product Designer Lead</div>
@@ -1200,7 +1200,6 @@ main{padding:48px var(--page-x) 80px}
       <section class="cell c-exp">
         <div class="exp-head">
           <h3 class="exp-title">Companies I&rsquo;ve worked with</h3>
-          <p class="exp-sub">Enterprise and SaaS, across telecom, IoT, fintech, and automotive.</p>
         </div>
         <div class="co-grid">
           <div class="co-tile"><div class="co-name">Verizon</div><span class="co-logo"><img src="assets/logos/verizon.svg" alt="Verizon"/></span><div class="co-foot"><div class="co-metric">+18% completion</div><div class="co-role">Checkout conversion</div></div></div>
