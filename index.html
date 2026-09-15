@@ -1518,7 +1518,7 @@ function openCase(id){
     </div>
   `).join('');
 
-  const linkHtml = c.link ? '<div class="cd-section"><a class="btn btn-ghost" href="' + c.link + '">Read the full case study →</a></div>' : '';
+  const linkHtml = c.link ? '<div class="cd-section"><a class="work-link" href="' + c.link + '">View case study <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>' : '';
 
   document.getElementById('cdContent').innerHTML = `
     <div class="cd-eyebrow">Case study · ${c.co}</div>
