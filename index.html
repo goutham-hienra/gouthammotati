@@ -800,7 +800,7 @@ main{padding:48px var(--page-x) 80px}
         <div class="work-grid">
 
       <!-- case study: Verizon -->
-      <a class="cell c-case c-case-verizon" href="#case-verizon" onclick="openCase('verizon')">
+      <a class="cell c-case c-case-verizon" href="work/verizon-checkout/">
         <div class="case-top">
           <div class="case-meta">
             <span class="case-name">Verizon</span>
@@ -1409,6 +1409,7 @@ document.getElementById('projTabs').addEventListener('click', e => {
 const cases = {
   verizon: {
     co: 'Verizon',
+    link: 'work/verizon-checkout/',
     title: 'Designing conversion inside a 20-year-old checkout',
     role: 'Senior Product Designer at YUJ Designs · paired with one other designer',
     year: '2021 – 2025 · 4 yrs',
@@ -1517,6 +1518,8 @@ function openCase(id){
     </div>
   `).join('');
 
+  const linkHtml = c.link ? '<div class="cd-section"><a class="btn btn-ghost" href="' + c.link + '">Read the full case study →</a></div>' : '';
+
   document.getElementById('cdContent').innerHTML = `
     <div class="cd-eyebrow">Case study · ${c.co}</div>
     <h2 class="cd-title">${c.title}</h2>
@@ -1525,6 +1528,7 @@ function openCase(id){
       <div class="cd-meta-item"><div class="label">Timeline</div><div class="value">${c.year}</div></div>
       <div class="cd-meta-item"><div class="label">Type</div><div class="value">${c.type}</div></div>
     </div>
+    ${linkHtml}
 
     <div class="cd-section">
       <h4>Context</h4>
