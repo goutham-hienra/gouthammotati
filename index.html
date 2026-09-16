@@ -853,12 +853,12 @@ main{padding:48px var(--page-x) 80px}
 .ship-n{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144; font-size:1.7rem; line-height:1; letter-spacing:-.02em; color:var(--champagne)}
 .ship-stage-title{font:500 14px/1.3 var(--sans); color:var(--text-primary); margin:4px 0 0; letter-spacing:-.005em}
 .ship-products{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-.ship-prod{display:flex; align-items:baseline; gap:14px; padding:16px 18px; border-radius:12px; border:1px solid var(--champagne-30); background:linear-gradient(180deg, rgba(212,175,111,.10), rgba(212,175,111,.02)); min-width:0}
+.ship-prod{display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding:16px 18px; border-radius:12px; border:1px solid var(--champagne-30); background:linear-gradient(180deg, rgba(212,175,111,.10), rgba(212,175,111,.02)); min-width:0}
 .ship-num{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144; font-size:clamp(2rem,3vw,2.6rem); line-height:1; letter-spacing:-.025em; color:var(--champagne); text-shadow:0 0 18px rgba(212,175,111,.3); white-space:nowrap; flex-shrink:0}
 .ship-num small{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--champagne-60); margin-left:6px; text-shadow:none}
 .ship-prod-meta{display:flex; flex-direction:column; gap:3px; min-width:0}
-.ship-prod-name{font:500 13.5px/1.3 var(--sans); color:var(--text-primary)}
-.ship-prod-line{font:400 11.5px/1.35 var(--sans); color:var(--text-tertiary)}
+.ship-prod-name{font:500 13.5px/1.3 var(--sans); color:var(--text-primary); margin-top:8px}
+.ship-prod-line,.ship-prod-span{font:400 11.5px/1.35 var(--sans); color:var(--text-tertiary)}
 .ship-close{margin:0; font-size:12.5px; line-height:1.5; color:var(--text-tertiary); border-top:1px solid var(--w-06); padding-top:14px}
 .ship-close strong{color:var(--text-secondary); font-weight:500}
 @media (max-width:980px){
@@ -878,9 +878,9 @@ main{padding:48px var(--page-x) 80px}
   .c-exp{order:5}
   .c-contact{order:6}
   .ship-products{order:-1; grid-template-columns:repeat(3,1fr); gap:6px}
-  .ship-prod{flex-direction:column; align-items:flex-start; gap:6px; padding:10px 8px}
+  .ship-prod{gap:4px; padding:10px 8px}
   .ship-num{font-size:1.5rem} .ship-num small{display:block; margin:5px 0 0}
-  .ship-prod-name{font-size:11.5px} .ship-prod-line{font-size:10.5px} .ship-prod-plat{display:none}
+  .ship-prod-name{font-size:11.5px; margin-top:4px} .ship-prod-line,.ship-prod-span{font-size:10.5px} .ship-prod-plat{display:none}
   .ship-pipe{gap:0}
   .ship-stage{grid-template-columns:34px 1fr; padding:10px 0; border:0; border-top:1px solid var(--w-06); border-radius:0; background:none}
   .ship-stage:first-child{border-top:0; padding-top:0}
@@ -1128,11 +1128,11 @@ main{padding:48px var(--page-x) 80px}
           <li class="ship-stage"><span class="ship-n">05</span><h4 class="ship-stage-title">Audit and handoff</h4></li>
         </ol>
         <div class="ship-products">
-          <div class="ship-prod"><div class="ship-num">12<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper TFM</span><span class="ship-prod-line">28 screens<span class="ship-prod-plat">, desktop + mobile</span> &middot; brief to handoff</span></div></div>
-          <div class="ship-prod"><div class="ship-num">5<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper Billing</span><span class="ship-prod-line">26 screens<span class="ship-prod-plat">, mobile + desktop</span> &middot; brief to MVP</span></div></div>
-          <div class="ship-prod"><div class="ship-num">3<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper Compliance site</span><span class="ship-prod-line">single-page site<span class="ship-prod-plat">, responsive</span> &middot; brief to live</span></div></div>
+          <div class="ship-prod"><div class="ship-num">12<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper TFM</span><span class="ship-prod-line">28 screens<span class="ship-prod-plat"> &middot; desktop + mobile</span></span><span class="ship-prod-span">brief to handoff</span></div></div>
+          <div class="ship-prod"><div class="ship-num">5<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper Billing</span><span class="ship-prod-line">26 screens<span class="ship-prod-plat"> &middot; mobile + desktop</span></span><span class="ship-prod-span">brief to MVP</span></div></div>
+          <div class="ship-prod"><div class="ship-num">3<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper Compliance site</span><span class="ship-prod-line">single-page site<span class="ship-prod-plat"> &middot; responsive</span></span><span class="ship-prod-span">brief to live</span></div></div>
         </div>
-        <p class="ship-close"><strong>I do the design thinking. AI builds.</strong> Five stages, eleven skills in the pipeline, one artifact per stage.</p>
+        <p class="ship-close"><strong>I do the design thinking. AI builds.</strong> Five stages, one artifact per stage.</p>
       </section>
 
       <!-- where I create value -->
