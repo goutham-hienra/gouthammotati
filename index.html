@@ -259,7 +259,7 @@ main{padding:48px var(--page-x) 80px}
 .status-dot{width:8px; height:8px; border-radius:50%; background:var(--success); animation:dot-pulse 2s ease-in-out infinite; box-shadow:0 0 0 3px rgba(63,182,124,.15), 0 0 14px rgba(63,182,124,.55)}
 
 
-.c-stages{grid-column:1 / 13; grid-row:5 / 7; display:flex; flex-direction:column}
+.c-stages{grid-column:1 / 13; grid-row:8 / 10; display:flex; flex-direction:column}
 @media (max-width:980px){.c-stages{grid-column:span 6; grid-row:auto}}
 @media (max-width:640px){.c-stages{grid-column:span 2; grid-row:auto}}
 .stages-header{margin-bottom:24px}
@@ -287,10 +287,9 @@ main{padding:48px var(--page-x) 80px}
 
 .c-exp{grid-column:6 / 13; grid-row:1 / 4; display:flex; flex-direction:column}
 .c-exp:hover{border-color:var(--border-strong); box-shadow:var(--cell-shadow-hov)}
-.c-cert{grid-column:span 4; grid-row:11}
-.c-tools{grid-column:span 4; grid-row:11}
-.c-contact{grid-column:span 4; grid-row:11}
-.c-tools{grid-row:11}
+.c-cert{grid-column:span 4; grid-row:10}
+.c-tools{grid-column:span 4; grid-row:10}
+.c-contact{grid-column:span 4; grid-row:10}
 .cert-eyebrow{font:600 10px/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--champagne); margin-bottom:16px}
 .cert-list{display:flex; flex-direction:column; gap:0}
 .cert-item{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--w-04)}
@@ -321,8 +320,6 @@ main{padding:48px var(--page-x) 80px}
 .case-cta svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:transform var(--t-fast)}
 .c-case:hover .case-cta{color:var(--accent); border-color:var(--border-strong); background:var(--maroon-15)}
 .c-case:hover .case-cta svg{transform:translateX(2px)}
-/* Coming-soon state — case page not built yet (no active CTA) */
-.case-soon{flex-shrink:0; display:inline-flex; align-items:center; gap:6px; font:600 9px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary); padding:6px 11px; border:1px solid var(--border-ghost); border-radius:var(--r-pill); background:var(--w-04); white-space:nowrap}
 .c-case-coming{cursor:default}
 .cell.c-case-coming:hover{border-color:var(--border-ghost)}
 
@@ -334,31 +331,28 @@ main{padding:48px var(--page-x) 80px}
 .v-metric .metric-big{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144; font-size:clamp(2.3rem, 4.4vw, 3.1rem); line-height:1; letter-spacing:-.025em; color:var(--text-primary)}
 .v-metric .metric-big i{color:var(--photo-orange); font-style:normal; font-size:.72em; vertical-align:.08em; margin:0 .1em; font-weight:300}
 .v-metric .metric-row{display:flex; align-items:baseline; gap:14px; margin-top:10px; flex-wrap:wrap}
-.v-metric .metric-2{font-family:var(--serif); font-size:1.5rem; color:var(--accent); font-weight:400; line-height:1; letter-spacing:-.015em}
 .v-metric .metric-cap{font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-tertiary); line-height:1.4}
+
+.v-metric .metric-unit{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-tertiary); margin-left:8px; vertical-align:.4em}
 
 /* Honeywell — 5 → 1 collapse diagram */
 .v-collapse{display:flex; flex-direction:column; align-items:stretch; gap:14px}
 .v-collapse svg{width:100%; max-height:110px; color:#e8a05b}
-.v-collapse-cap{font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-tertiary); text-align:center}
-.v-collapse-cap i{color:#e8a05b; font-style:normal; margin:0 .15em}
 
-/* Unpaper — career arc */
-.v-arc{display:flex; justify-content:space-between; align-items:flex-end; gap:10px}
-.v-arc-point{display:flex; flex-direction:column; gap:4px; min-width:0}
-.v-arc-point.right{text-align:right; align-items:flex-end}
-.v-arc-year{font-family:var(--mono); font-size:10px; color:var(--champagne); letter-spacing:.06em}
-.v-arc-role{font-family:var(--serif); font-weight:400; font-size:1.02rem; line-height:1.2; color:var(--text-primary); letter-spacing:-.005em}
-.v-arc-mid{display:flex; flex-direction:column; align-items:center; gap:8px; padding:0 4px; flex:0 0 auto; align-self:flex-end; padding-bottom:2px}
-.v-arc-svg{width:52px; height:22px; color:var(--champagne-60)}
-.v-arc-chip{font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--champagne); padding:3px 8px; border:1px solid var(--champagne-30); border-radius:var(--r-pill); white-space:nowrap}
+/* Unpaper — two chapters (2017–2020 · 2026) */
+.v-chapters{display:flex; flex-direction:column}
+.v-chap{display:grid; grid-template-columns:78px 1fr; column-gap:14px; align-items:baseline; padding:9px 0; border-top:1px solid var(--w-06)}
+.v-chap:first-child{border-top:0; padding-top:0}
+.v-chap-year{font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--champagne)}
+.v-chap-line{font-family:var(--serif); font-weight:300; font-variation-settings:"opsz" 144; font-size:1.25rem; line-height:1.15; letter-spacing:-.015em; color:var(--text-primary)}
+.v-chap-line b{font-weight:400; color:var(--champagne)}
+.v-chap-line i{font-style:normal; font-size:.8em; margin:0 .08em; color:var(--champagne-60)}
 
 /* ─── Featured work section (home — recessed tray holding the 3 case cards) ─── */
-.c-work{grid-column:1 / 13; grid-row:7 / 10; display:flex; flex-direction:column; padding:26px; background:#0c0e12; border:1px solid var(--border-subtle); border-radius:var(--r-lg); box-shadow:inset 0 1px 0 rgba(0,0,0,.5), inset 0 2px 16px rgba(0,0,0,.4)}
+.c-work{grid-column:1 / 13; grid-row:5 / 8; display:flex; flex-direction:column; padding:26px; background:#0c0e12; border:1px solid var(--border-subtle); border-radius:var(--r-lg); box-shadow:inset 0 1px 0 rgba(0,0,0,.5), inset 0 2px 16px rgba(0,0,0,.4)}
 @media (max-width:980px){.c-work{grid-column:span 6; grid-row:auto}}
 @media (max-width:640px){.c-work{grid-column:span 2; grid-row:auto}}
 .work-header{display:flex; justify-content:space-between; align-items:flex-end; gap:20px; margin-bottom:22px}
-.work-eyebrow{font:600 10px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--champagne); margin-bottom:12px}
 .work-title{font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-heading); font-size:clamp(1.8rem,2.6vw,2.4rem); line-height:1.1; letter-spacing:-.02em; color:var(--text-primary)}
 .work-link{flex-shrink:0; display:inline-flex; align-items:center; gap:7px; font:500 12.5px/1 var(--sans); letter-spacing:-.005em; color:var(--text-secondary); text-decoration:none; padding:9px 15px; border:1px solid var(--border-ghost); border-radius:var(--r-pill); background:var(--w-04); transition:color var(--t-fast), border-color var(--t-fast), background var(--t-fast); white-space:nowrap}
 .work-link svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:transform var(--t-fast)}
@@ -846,7 +840,7 @@ main{padding:48px var(--page-x) 80px}
 .c-ship .ship-title{font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-heading); font-size:clamp(1.8rem,2.6vw,2.4rem); line-height:1.1; letter-spacing:-.02em; color:var(--text-primary); margin:0; max-width:18ch}
 .ship-sub{font-size:14px; line-height:1.55; color:var(--text-secondary); margin:14px 0 0; max-width:46ch}
 .ship-sub strong{color:var(--text-primary); font-weight:500}
-.ship-pipe{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); gap:12px}
+.ship-pipe{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,1fr); gap:12px}
 .ship-stage{position:relative; display:flex; flex-direction:column; gap:6px; padding:16px 16px 18px; border-radius:12px; background:var(--w-04); border:1px solid var(--border-ghost); min-width:0; transition:background var(--t-fast), border-color var(--t-fast)}
 .ship-stage:hover{background:var(--w-06); border-color:var(--border-strong)}
 .ship-stage:not(:first-child)::before{content:''; position:absolute; left:-12px; top:31px; width:12px; height:1px; background:var(--champagne-30)}
@@ -858,7 +852,6 @@ main{padding:48px var(--page-x) 80px}
 .ship-num small{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--champagne-60); margin-left:6px; text-shadow:none}
 .ship-prod-meta{display:flex; flex-direction:column; gap:3px; min-width:0}
 .ship-prod-name{font:500 13.5px/1.3 var(--sans); color:var(--text-primary); margin-top:8px}
-.ship-prod-line,.ship-prod-span{font:400 11.5px/1.35 var(--sans); color:var(--text-tertiary)}
 .ship-close{margin:0; font-size:12.5px; line-height:1.5; color:var(--text-tertiary); border-top:1px solid var(--w-06); padding-top:14px}
 .ship-close strong{color:var(--text-secondary); font-weight:500}
 @media (max-width:980px){
@@ -880,7 +873,7 @@ main{padding:48px var(--page-x) 80px}
   .ship-products{order:-1; grid-template-columns:repeat(3,1fr); gap:6px}
   .ship-prod{gap:4px; padding:10px 8px}
   .ship-num{font-size:1.5rem} .ship-num small{display:block; margin:5px 0 0}
-  .ship-prod-name{font-size:11.5px; margin-top:4px} .ship-prod-line,.ship-prod-span{font-size:10.5px} .ship-prod-plat{display:none}
+  .ship-prod-name{font-size:11.5px; margin-top:4px}
   .ship-pipe{gap:0}
   .ship-stage{grid-template-columns:34px 1fr; padding:10px 0; border:0; border-top:1px solid var(--w-06); border-radius:0; background:none}
   .ship-stage:first-child{border-top:0; padding-top:0}
@@ -969,7 +962,6 @@ main{padding:48px var(--page-x) 80px}
       <section class="c-work">
         <div class="work-header">
           <div>
-            <div class="work-eyebrow">Selected case studies</div>
             <h3 class="work-title">Featured work</h3>
           </div>
           <a class="work-link" href="#projects" onclick="route(event,'projects')">View all <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -993,14 +985,28 @@ main{padding:48px var(--page-x) 80px}
           <div class="case-kpi"><b>&minus;35%</b><span>drop-offs</span></div>
         </div>
         <div class="case-visual v-metric">
-          <div class="metric-big">23<i>&rarr;</i>17</div>
-          <div class="metric-row">
-            <span class="metric-2">+18%</span>
-            <span class="metric-cap">min completion<br>checkout conversion</span>
+            <div class="metric-big">23<i>&rarr;</i>17<span class="metric-unit">min</span></div>
+            <div class="metric-row">
+              <span class="metric-cap">Checkout completion time</span>
+            </div>
           </div>
-        </div>
       </a>
 
+      <!-- case study: Unpaper -->
+      <div class="cell c-case c-case-unpaper c-case-coming">
+        <div class="case-top">
+          <div class="case-meta">
+            <span class="case-name">Unpaper</span>
+            <span class="case-year">2017–2020, 2026</span>
+          </div>
+        </div>
+        <h3 class="case-title">AI-powered SaaS tools for tax firms and businesses</h3>
+        <p class="case-desc">First designer in 2017; founded the design system it still runs on. Brought back six years later.</p>
+        <div class="case-visual v-chapters">
+          <div class="v-chap"><span class="v-chap-year">2017–2020</span><span class="v-chap-line"><b>0<i>&rarr;</i>1</b> product</span></div>
+          <div class="v-chap"><span class="v-chap-year">2026</span><span class="v-chap-line"><b>3</b> projects in <b>20</b> weeks</span></div>
+        </div>
+      </div>
       <!-- case study: Honeywell -->
       <div class="cell c-case c-case-honeywell c-case-coming">
         <div class="case-top">
@@ -1008,7 +1014,6 @@ main{padding:48px var(--page-x) 80px}
             <span class="case-name">Honeywell</span>
             <span class="case-year">2020–2021</span>
           </div>
-          <span class="case-soon">Coming soon</span>
         </div>
         <h3 class="case-title">Smart Communities</h3>
         <p class="case-desc">B2B IoT dashboard concept for property managers of a premium mixed-use community.</p>
@@ -1026,48 +1031,19 @@ main{padding:48px var(--page-x) 80px}
             <path d="M180,18 Q140,46 122,72" stroke="currentColor" stroke-width="1" fill="none" opacity=".4"/>
             <rect x="58" y="72" width="84" height="22" rx="3" stroke="currentColor" stroke-width="1.4" fill="none"/>
           </svg>
-          <div class="v-collapse-cap">5 tools <i>&rarr;</i> 1 window</div>
         </div>
       </div>
 
-      <!-- case study: Unpaper -->
-      <div class="cell c-case c-case-unpaper c-case-coming">
-        <div class="case-top">
-          <div class="case-meta">
-            <span class="case-name">Unpaper</span>
-            <span class="case-year">2017–2020</span>
-          </div>
-          <span class="case-soon">Coming soon</span>
-        </div>
-        <h3 class="case-title">Founding designer &rarr; UX lead</h3>
-        <p class="case-desc">0&rarr;1 tax SaaS. Built the design system, scaled the function, grew the team.</p>
-        <div class="case-visual v-arc">
-          <div class="v-arc-point">
-            <span class="v-arc-year">2017</span>
-            <span class="v-arc-role">Sole designer</span>
-          </div>
-          <div class="v-arc-mid">
-            <svg class="v-arc-svg" viewBox="0 0 52 22" aria-hidden="true">
-              <path d="M3,18 Q26,2 49,18" stroke="currentColor" stroke-width="1.4" fill="none" stroke-dasharray="2 2"/>
-            </svg>
-            <span class="v-arc-chip">Founded UDS</span>
-          </div>
-          <div class="v-arc-point right">
-            <span class="v-arc-year">2020</span>
-            <span class="v-arc-role">Lead, team of 4</span>
-          </div>
-        </div>
-      </div>
 
         </div>
-        <p class="work-also m-only">Also: <b>Honeywell</b> &middot; <b>Unpaper</b> &mdash; coming soon</p>
+        <p class="work-also m-only">Also: <b>Unpaper</b> &middot; <b>Honeywell</b> &mdash; coming soon</p>
       </section>
 
       <!-- how I ship -->
       <section class="cell c-ship" aria-labelledby="shipTitle">
         <div class="ship-head">
           <div class="ship-lead">
-            <div class="ship-eyebrow">How I ship</div>
+            <div class="ship-eyebrow">How I ship with AI</div>
             <h3 class="ship-title" id="shipTitle">Shipping products at lightning speed.</h3>
             <p class="ship-sub">Research to handoff, on the AI-workflow that I built. Process changed, craft remained.</p>
           </div>
@@ -1082,25 +1058,33 @@ main{padding:48px var(--page-x) 80px}
               <line x1="14" y1="52" x2="44" y2="52" stroke="#f6f3ec" stroke-opacity=".30" stroke-width="1.5" stroke-linecap="round"/>
               <line x1="14" y1="60" x2="50" y2="60" stroke="#f6f3ec" stroke-opacity=".30" stroke-width="1.5" stroke-linecap="round"/>
               <line x1="14" y1="68" x2="36" y2="68" stroke="#f6f3ec" stroke-opacity=".30" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="134" y1="82" x2="134" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
-              <rect x="106" y="40" width="56" height="40" rx="4" fill="none" stroke="#f6f3ec" stroke-opacity=".28"/>
-              <rect x="115" y="49.5" width="3" height="3" fill="#d4af6f" fill-opacity=".6"/>
-              <line x1="123" y1="51" x2="149" y2="51" stroke="#f6f3ec" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
-              <rect x="115" y="58.5" width="3" height="3" fill="#d4af6f" fill-opacity=".6"/>
-              <line x1="123" y1="60" x2="155" y2="60" stroke="#f6f3ec" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
-              <rect x="115" y="67.5" width="3" height="3" fill="#d4af6f" fill-opacity=".6"/>
-              <line x1="123" y1="69" x2="143" y2="69" stroke="#f6f3ec" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="236" y1="82" x2="236" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
-              <rect x="208" y="40" width="56" height="40" rx="4" fill="none" stroke="#f6f3ec" stroke-opacity=".36"/>
-              <rect x="214" y="46" width="44" height="6" fill="#f6f3ec" fill-opacity=".10"/>
-              <rect x="214" y="56" width="20" height="16" fill="none" stroke="#f6f3ec" stroke-opacity=".34" stroke-dasharray="2 2"/>
-              <rect x="238" y="56" width="20" height="16" fill="none" stroke="#f6f3ec" stroke-opacity=".34" stroke-dasharray="2 2"/>
-              <line x1="338" y1="82" x2="338" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
-              <rect x="310" y="40" width="56" height="40" rx="4" fill="#f6f3ec" fill-opacity=".06" stroke="#f6f3ec" stroke-opacity=".45"/>
-              <rect x="316" y="46" width="44" height="6" rx="1" fill="#f6f3ec" fill-opacity=".18"/>
-              <rect x="316" y="57" width="30" height="2" rx="1" fill="#f6f3ec" fill-opacity=".30"/>
-              <rect x="316" y="62" width="22" height="2" rx="1" fill="#f6f3ec" fill-opacity=".22"/>
-              <rect x="316" y="69" width="18" height="5" rx="2.5" fill="#d4af6f" fill-opacity=".85"/>
+              <line x1="113.6" y1="82" x2="113.6" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
+              <rect x="85.6" y="40" width="56" height="40" rx="4" fill="none" stroke="#f6f3ec" stroke-opacity=".28"/>
+              <rect x="94.6" y="49.5" width="3" height="3" fill="#d4af6f" fill-opacity=".6"/>
+              <line x1="102.6" y1="51.0" x2="128.6" y2="51.0" stroke="#f6f3ec" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="94.6" y="58.5" width="3" height="3" fill="#d4af6f" fill-opacity=".6"/>
+              <line x1="102.6" y1="60.0" x2="134.6" y2="60.0" stroke="#f6f3ec" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="94.6" y="67.5" width="3" height="3" fill="#d4af6f" fill-opacity=".6"/>
+              <line x1="102.6" y1="69.0" x2="122.6" y2="69.0" stroke="#f6f3ec" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="195.2" y1="82" x2="195.2" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
+              <rect x="167.2" y="40" width="56" height="40" rx="4" fill="none" stroke="#f6f3ec" stroke-opacity=".36"/>
+              <rect x="173.2" y="46" width="44" height="6" fill="#f6f3ec" fill-opacity=".10"/>
+              <rect x="173.2" y="56" width="20" height="16" fill="none" stroke="#f6f3ec" stroke-opacity=".34" stroke-dasharray="2 2"/>
+              <rect x="197.2" y="56" width="20" height="16" fill="none" stroke="#f6f3ec" stroke-opacity=".34" stroke-dasharray="2 2"/>
+              <line x1="276.8" y1="82" x2="276.8" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
+              <rect x="248.8" y="40" width="56" height="40" rx="4" fill="#f6f3ec" fill-opacity=".06" stroke="#f6f3ec" stroke-opacity=".45"/>
+              <rect x="254.8" y="46" width="44" height="6" rx="1" fill="#f6f3ec" fill-opacity=".18"/>
+              <rect x="254.8" y="57" width="30" height="2" rx="1" fill="#f6f3ec" fill-opacity=".30"/>
+              <rect x="254.8" y="62" width="22" height="2" rx="1" fill="#f6f3ec" fill-opacity=".22"/>
+              <rect x="254.8" y="69" width="18" height="5" rx="2.5" fill="#d4af6f" fill-opacity=".85"/>
+              <line x1="358.4" y1="82" x2="358.4" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
+              <rect x="330.4" y="40" width="56" height="40" rx="4" fill="#f6f3ec" fill-opacity=".07" stroke="#f6f3ec" stroke-opacity=".55"/>
+              <rect x="336.4" y="46" width="44" height="6" rx="1" fill="#f6f3ec" fill-opacity=".20"/>
+              <rect x="336.4" y="57" width="30" height="2" rx="1" fill="#f6f3ec" fill-opacity=".32"/>
+              <rect x="336.4" y="62" width="22" height="2" rx="1" fill="#f6f3ec" fill-opacity=".24"/>
+              <rect x="336.4" y="69" width="18" height="5" rx="2.5" fill="#d4af6f" fill-opacity=".9"/>
+              <circle cx="386.4" cy="40" r="5.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity=".85" stroke-width="1.2"/>
+              <polyline points="383.79999999999995,40 385.79999999999995,42 389.2,38.4" fill="none" stroke="#d4af6f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
               <line x1="440" y1="82" x2="440" y2="110" stroke="#f6f3ec" stroke-opacity=".12" stroke-width="1"/>
               <rect x="412" y="40" width="56" height="40" rx="4" fill="#f6f3ec" fill-opacity=".08" stroke="#d4af6f" stroke-opacity=".85" filter="url(#shipGlow)"/>
               <rect x="418" y="46" width="44" height="6" rx="1" fill="#f6f3ec" fill-opacity=".22"/>
@@ -1108,31 +1092,34 @@ main{padding:48px var(--page-x) 80px}
               <rect x="418" y="62" width="22" height="2" rx="1" fill="#f6f3ec" fill-opacity=".26"/>
               <rect x="418" y="69" width="18" height="5" rx="2.5" fill="#d4af6f"/>
               <circle cx="32" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.4" stroke-width="1.2"/>
-              <circle cx="134" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.55" stroke-width="1.2"/>
-              <circle cx="236" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.7" stroke-width="1.2"/>
-              <circle cx="338" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.85" stroke-width="1.2"/>
+              <circle cx="113.6" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.5" stroke-width="1.2"/>
+              <circle cx="195.2" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.6" stroke-width="1.2"/>
+              <circle cx="276.8" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.72" stroke-width="1.2"/>
+              <circle cx="358.4" cy="118" r="4.5" fill="#0a0a0c" stroke="#d4af6f" stroke-opacity="0.85" stroke-width="1.2"/>
               <circle cx="440" cy="118" r="5" fill="#d4af6f" filter="url(#shipGlow)"/>
               <text x="32" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">01</text>
-              <text x="134" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">02</text>
-              <text x="236" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">03</text>
-              <text x="338" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">04</text>
-              <text x="440" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">05</text>
+              <text x="113.6" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">02</text>
+              <text x="195.2" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">03</text>
+              <text x="276.8" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">04</text>
+              <text x="358.4" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">05</text>
+              <text x="440" y="143" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="9" letter-spacing="1.5" fill="#d4af6f" fill-opacity=".62">06</text>
               </svg>
           </figure>
         </div>
         <ol class="ship-pipe">
           <li class="ship-stage"><span class="ship-n">01</span><h4 class="ship-stage-title">Research</h4></li>
-          <li class="ship-stage"><span class="ship-n">02</span><h4 class="ship-stage-title">Requirements</h4></li>
-          <li class="ship-stage"><span class="ship-n">03</span><h4 class="ship-stage-title">Design explorations with annotated handoff</h4></li>
-          <li class="ship-stage"><span class="ship-n">04</span><h4 class="ship-stage-title">Clickable prototype on the design system</h4></li>
-          <li class="ship-stage"><span class="ship-n">05</span><h4 class="ship-stage-title">Audit and handoff</h4></li>
+          <li class="ship-stage"><span class="ship-n">02</span><h4 class="ship-stage-title">Synthesis</h4></li>
+          <li class="ship-stage"><span class="ship-n">03</span><h4 class="ship-stage-title">Design explorations</h4></li>
+          <li class="ship-stage"><span class="ship-n">04</span><h4 class="ship-stage-title">Clickable prototypes</h4></li>
+          <li class="ship-stage"><span class="ship-n">05</span><h4 class="ship-stage-title">Design system audit</h4></li>
+          <li class="ship-stage"><span class="ship-n">06</span><h4 class="ship-stage-title">Handoff</h4></li>
         </ol>
         <div class="ship-products">
-          <div class="ship-prod"><div class="ship-num">12<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper TFM</span><span class="ship-prod-line">28 screens<span class="ship-prod-plat"> &middot; desktop + mobile</span></span><span class="ship-prod-span">brief to handoff</span></div></div>
-          <div class="ship-prod"><div class="ship-num">5<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper Billing</span><span class="ship-prod-line">26 screens<span class="ship-prod-plat"> &middot; mobile + desktop</span></span><span class="ship-prod-span">brief to MVP</span></div></div>
-          <div class="ship-prod"><div class="ship-num">3<small>weeks</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Unpaper Compliance site</span><span class="ship-prod-line">single-page site<span class="ship-prod-plat"> &middot; responsive</span></span><span class="ship-prod-span">brief to live</span></div></div>
+          <div class="ship-prod"><div class="ship-num">3<small>projects</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Shipped in 20 weeks</span></div></div>
+          <div class="ship-prod"><div class="ship-num">54<small>screens</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Research to handoff</span></div></div>
+          <div class="ship-prod"><div class="ship-num">13<small>skills</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Created in Claude Code</span></div></div>
         </div>
-        <p class="ship-close"><strong>I do the design thinking. AI builds.</strong> Five stages, one artifact per stage.</p>
+        <p class="ship-close"><strong>I do the design thinking. AI builds.</strong> Six stages, one artifact per stage.</p>
       </section>
 
       <!-- where I create value -->
