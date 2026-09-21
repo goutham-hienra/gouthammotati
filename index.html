@@ -288,9 +288,9 @@ main{padding:48px var(--page-x) 80px}
 
 .c-exp{grid-column:6 / 13; grid-row:1 / 4; display:flex; flex-direction:column}
 .c-exp:hover{border-color:var(--border-strong); box-shadow:var(--cell-shadow-hov)}
-.c-cert{grid-column:span 4; grid-row:10}
-.c-tools{grid-column:span 4; grid-row:10}
-.c-contact{grid-column:span 4; grid-row:10}
+.c-tools{grid-column:1 / 7; grid-row:10 / 12}
+.c-cert{grid-column:7 / 13; grid-row:10}
+.c-contact{grid-column:7 / 13; grid-row:11}
 .cert-eyebrow{font:600 10px/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--champagne); margin-bottom:16px}
 .cert-list{display:flex; flex-direction:column; gap:0}
 .cert-item{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--w-04)}
@@ -302,6 +302,7 @@ main{padding:48px var(--page-x) 80px}
 .c-tools .skill-group{margin-bottom:14px}
 .c-tools .skill-group-name{color:var(--champagne); margin-bottom:8px}
 @media (max-width:980px){.c-exp,.c-cert,.c-tools,.c-contact{grid-column:span 3; grid-row:auto}}
+@media (max-width:980px){.c-tools{grid-row:span 2}}
 @media (max-width:640px){.c-exp,.c-cert,.c-tools,.c-contact{grid-column:span 2; grid-row:auto}}
 @media (max-width:980px){.c-exp{grid-column:span 6}}
 @media (max-width:640px){.co-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1205,6 +1206,23 @@ main{padding:48px var(--page-x) 80px}
         </div>
       </section>
 
+      <!-- tools -->
+      <section class="cell c-tools">
+        <div class="cert-eyebrow">Capabilities</div>
+        <div class="skill-group">
+          <div class="skill-group-name">AI</div>
+          <div class="pills"><span class="chip">AI Product Design</span><span class="chip">AI Workflows</span><span class="chip">Rapid Prototyping</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">Design</div>
+          <div class="pills"><span class="chip">End-to-End UX</span><span class="chip">Design Systems</span><span class="chip">Design Tokens</span><span class="chip">Interaction Design</span><span class="chip">Conversion Optimization</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">Research &amp; strategy</div>
+          <div class="pills"><span class="chip">User Research</span><span class="chip">Usability Testing</span><span class="chip">A/B Testing</span><span class="chip">Product Strategy</span><span class="chip">Design Ops</span><span class="chip">Cross-Functional Leadership</span></div>
+        </div>
+      </section>
+
       <!-- certifications -->
       <section class="cell c-cert">
         <div class="cert-eyebrow">Certifications</div>
@@ -1223,23 +1241,6 @@ main{padding:48px var(--page-x) 80px}
             </div>
             <span class="cert-year">2016</span>
           </div>
-        </div>
-      </section>
-
-      <!-- tools -->
-      <section class="cell c-tools">
-        <div class="cert-eyebrow">Capabilities</div>
-        <div class="skill-group">
-          <div class="skill-group-name">AI</div>
-          <div class="pills"><span class="chip">AI Product Design</span><span class="chip">AI Workflows</span><span class="chip">Rapid Prototyping</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-name">Design</div>
-          <div class="pills"><span class="chip">End-to-End UX</span><span class="chip">Design Systems</span><span class="chip">Design Tokens</span><span class="chip">Interaction Design</span><span class="chip">Conversion Optimization</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-name">Research &amp; strategy</div>
-          <div class="pills"><span class="chip">User Research</span><span class="chip">Usability Testing</span><span class="chip">A/B Testing</span><span class="chip">Product Strategy</span><span class="chip">Design Ops</span><span class="chip">Cross-Functional Leadership</span></div>
         </div>
       </section>
 
