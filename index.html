@@ -176,6 +176,7 @@ main{padding:48px var(--page-x) 80px}
 }
 .btn-ghost:hover{border-color:var(--accent); color:var(--accent); background:var(--maroon-15)}
 .btn-sm{padding:8px 14px; font-size:11.5px}
+.btn svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0}
 
 .chip{
   font-size:10.5px; font-weight:500; color:var(--text-secondary);
@@ -480,6 +481,13 @@ main{padding:48px var(--page-x) 80px}
   background:var(--w-04); border:1px solid var(--border-subtle);
   padding:4px 10px; border-radius:var(--r-pill);
 }
+
+.tl-lead{font-size:13px; color:var(--text-secondary); line-height:1.65; margin-top:12px}
+.tl-eng{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:18px; font-size:13px; font-weight:500; color:var(--text-primary)}
+.tl-eng-dates{font-family:var(--mono); font-size:11px; font-weight:400; color:var(--text-tertiary)}
+.tl-eng + .tl-bullets{margin-top:8px}
+.tl-bullets .tl-bullets{margin:6px 0 0; padding-left:0}
+.tl-bullets strong{font-weight:500; color:var(--text-primary)}
 
 .resume-aside{position:sticky; top:120px; align-self:start}
 .aside-card{
@@ -1004,7 +1012,7 @@ main{padding:48px var(--page-x) 80px}
         <p class="case-desc">AI-powered software suite for Indian tax firms and businesses: practice management, GST billing, pre-filing review.</p>
         <div class="case-visual v-chapters">
           <div class="v-chap"><span class="v-chap-year">2017–2020</span><span class="v-chap-line"><b>0<i>&rarr;</i>1</b> product</span></div>
-          <div class="v-chap"><span class="v-chap-year">2026</span><span class="v-chap-line"><b>3</b> projects in <b>20</b> weeks</span></div>
+          <div class="v-chap"><span class="v-chap-year">2026</span><span class="v-chap-line"><b>3</b> products in <b>20</b> weeks</span></div>
         </div>
       </div>
       <!-- case study: Honeywell -->
@@ -1115,7 +1123,7 @@ main{padding:48px var(--page-x) 80px}
           <li class="ship-stage"><span class="ship-n">06</span><h4 class="ship-stage-title">Handoff</h4></li>
         </ol>
         <div class="ship-products">
-          <div class="ship-prod"><div class="ship-num">3<small>projects</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Shipped in 20 weeks</span></div></div>
+          <div class="ship-prod"><div class="ship-num">3<small>products</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Shipped in 20 weeks</span></div></div>
           <div class="ship-prod"><div class="ship-num">54<small>screens</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Research to handoff</span></div></div>
           <div class="ship-prod"><div class="ship-num">13<small>skills</small></div><div class="ship-prod-meta"><span class="ship-prod-name">Created in Claude Code</span></div></div>
         </div>
@@ -1345,7 +1353,7 @@ main{padding:48px var(--page-x) 80px}
     <div class="page-header">
       <div class="ph-eyebrow">Background</div>
       <h1>Career <em>arc</em></h1>
-      <p class="ph-sub">The thread across the work: making complex systems legible at scale. Enterprise software, design systems, fintech, IoT, and automotive SaaS.</p>
+      <p class="ph-sub">AI Product Designer with 10 years of UX experience, designing complex enterprise, telecom, and SaaS products. Experienced in AI workflows, 0→1 product development, conversion optimization, and design systems at scale.</p>
     </div>
 
     <div class="resume-grid">
@@ -1359,19 +1367,24 @@ main{padding:48px var(--page-x) 80px}
               <div class="tl-header">
                 <div>
                   <div class="tl-role">UX Design Consultant</div>
-                  <div class="tl-co">Unpaper · Consulting (return engagement)</div>
+                  <div class="tl-co">Unpaper · Consulting</div>
                 </div>
                 <div class="tl-dates">2026 – Present</div>
               </div>
               <ul class="tl-bullets">
-                <li>Returned six years after my original tenure to ship a new Billing App 0→1 (GST-compliant invoicing for Indian SMEs) and lead the revamp of the original Tax Firm Management product I'd built</li>
-                <li>Operating as external senior design voice across two parallel product mandates, integrating with internal product, engineering, and design teams</li>
+                <li>Built an AI-powered design workflow to accelerate product development, shipping 3 products in 20 weeks and taking 54 screens from research through engineering handoff.
+                  <ul class="tl-bullets">
+                    <li><strong>Billing App:</strong> Designed and shipped a new product 0→1.</li>
+                    <li><strong>Tax Firm Management:</strong> Led the product redesign from V1 → V2.</li>
+                    <li><strong>Compliance Review System:</strong> Designed an AI-powered compliance review experience and its core workflows.</li>
+                  </ul>
+                </li>
               </ul>
               <div class="tl-tags">
+                <span class="tl-tag">AI Workflows</span>
                 <span class="tl-tag">0→1 Product</span>
-                <span class="tl-tag">Design System</span>
-                <span class="tl-tag">Fintech / Regtech</span>
-                <span class="tl-tag">Return engagement</span>
+                <span class="tl-tag">Product Redesign</span>
+                <span class="tl-tag">Engineering Handoff</span>
               </div>
             </div>
           </div>
@@ -1386,17 +1399,24 @@ main{padding:48px var(--page-x) 80px}
                 </div>
                 <div class="tl-dates">2020 – 2025</div>
               </div>
+              <p class="tl-lead">Led major enterprise telecom and IoT engagements, progressing from Senior to Lead Product Designer.</p>
+              <div class="tl-eng">Verizon Home Internet <span class="tl-eng-dates">2021 – 2025</span></div>
               <ul class="tl-bullets">
-                <li>Senior IC role inside one of India's design studios — led major client engagements across enterprise telecom and IoT. Grew from Senior to Lead Product Designer over the tenure</li>
-                <li>Verizon Home Internet checkout (2021–2025): Senior Product Designer on the Purchase Journey pod. Overhauled a six-step lower funnel processing 50K–100K monthly users; ran a parallel VDS 2.0 → 3.0 migration. 23 → 17 min checkout, +18% completion, −35% drop-offs</li>
-                <li>Honeywell Smart Communities (2020–2021): Senior Product Designer on a 3-person pod. Designed the property-manager dashboard at the heart of an IoT command center concept for a premium mixed-use community in Dubai</li>
+                <li>Redesigned the six-step checkout serving 50K–100K monthly users while running a parallel VDS 2.0→3.0 design-system migration.</li>
+                <li>Cut checkout time from 23 to 17 minutes, improved completion by 18% and reduced drop-offs at key funnel steps by 35%.</li>
+                <li>Validated the redesign in moderated testing with 21 users: 91% rated the experience trustworthy, 77% found information easier to understand, and dead-end scenarios were eliminated.</li>
+                <li>Drove optimization through funnel analysis, A/B and multivariate testing, heatmaps and usability research using ContentSquare, Glassbox, Adobe Analytics and UserTesting.com.</li>
+              </ul>
+              <div class="tl-eng">Honeywell Smart Communities <span class="tl-eng-dates">2020 – 2021</span></div>
+              <ul class="tl-bullets">
+                <li>Designed the property-manager dashboard for an IoT command-center concept supporting a premium mixed-use community in Dubai.</li>
               </ul>
               <div class="tl-tags">
-                <span class="tl-tag">Enterprise UX</span>
-                <span class="tl-tag">Conversion Design</span>
-                <span class="tl-tag">0→1 Concept</span>
-                <span class="tl-tag">Design System Migration</span>
+                <span class="tl-tag">Enterprise Telecom</span>
                 <span class="tl-tag">IoT</span>
+                <span class="tl-tag">Conversion Optimization</span>
+                <span class="tl-tag">Design System Migration</span>
+                <span class="tl-tag">Usability Testing</span>
               </div>
             </div>
           </div>
@@ -1412,16 +1432,14 @@ main{padding:48px var(--page-x) 80px}
                 <div class="tl-dates">2017 – 2020</div>
               </div>
               <ul class="tl-bullets">
-                <li>First designer at the company. Built the Tax Firm Management product 0→1 — a B2B SaaS platform for Indian tax firms and Chartered Accountants managing client compliance</li>
-                <li>Built the foundational Unpaper Design System (UDS v1) from scratch — typography, colour, heavy form-component library, navigation, usage standards</li>
-                <li>Grew from sole designer to Lead UX managing a 4-person team — 2 UX designers on product, 2 graphic designers on marketing. Design and brand built from zero together</li>
-                <li>Designed end-to-end user journeys across Indian compliance; structured IA around the firm operator's job-to-be-done rather than tax categories</li>
+                <li>First designer at the company; built the Tax Firm Management product 0→1 for Indian tax firms and Chartered Accountants managing client compliance.</li>
+                <li>Built the foundational Unpaper Design System (UDS v1) from scratch — typography, colour, form-heavy components, navigation and usage standards.</li>
+                <li>Grew from sole designer to Lead UX managing a four-person team across product and marketing design.</li>
               </ul>
               <div class="tl-tags">
                 <span class="tl-tag">0→1 Product</span>
-                <span class="tl-tag">Design System</span>
-                <span class="tl-tag">Design Leadership</span>
-                <span class="tl-tag">Fintech / Regtech</span>
+                <span class="tl-tag">Design Systems</span>
+                <span class="tl-tag">Team Leadership</span>
               </div>
             </div>
           </div>
@@ -1437,15 +1455,13 @@ main{padding:48px var(--page-x) 80px}
                 <div class="tl-dates">2016 – 2017</div>
               </div>
               <ul class="tl-bullets">
-                <li>Sole designer modernising Affinitiv's vertical CRM for automobile dealerships — bridging US business and India engineering across two continents as the only design function</li>
-                <li>Audited the legacy UI, defined updated visual language (typography, colour, spacing, component standards), and modernised the high-traffic customer-record and communication-authoring surfaces</li>
-                <li>Documented design decisions thoroughly enough that distributed engineering could build without me in the room</li>
+                <li>Sole designer modernising a vertical CRM for automobile dealerships — audited the legacy UI, defined an updated visual language and documented decisions for distributed engineering teams.</li>
               </ul>
               <div class="tl-tags">
-                <span class="tl-tag">Enterprise SaaS</span>
-                <span class="tl-tag">Visual Modernization</span>
-                <span class="tl-tag">Solo Design</span>
-                <span class="tl-tag">Distributed Team</span>
+                <span class="tl-tag">Vertical CRM</span>
+                <span class="tl-tag">Visual Language</span>
+                <span class="tl-tag">Sole Designer</span>
+                <span class="tl-tag">Distributed Engineering</span>
               </div>
             </div>
           </div>
@@ -1455,37 +1471,19 @@ main{padding:48px var(--page-x) 80px}
 
       <aside class="resume-aside">
         <div class="aside-card">
-          <div class="aside-title">Skills</div>
-          <div class="skill-group">
-            <div class="skill-group-name">Design</div>
-            <div class="skill-pills">
-              <span class="skill-pill">Figma</span>
-              <span class="skill-pill">Prototyping</span>
-              <span class="skill-pill">Design Systems</span>
-              <span class="skill-pill">Design Tokens</span>
-              <span class="skill-pill">Visual Design</span>
-              <span class="skill-pill">Interaction Design</span>
-              <span class="skill-pill">IA</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-name">Research</div>
-            <div class="skill-pills">
-              <span class="skill-pill">Usability Testing</span>
-              <span class="skill-pill">Interviews</span>
-              <span class="skill-pill">Heuristics</span>
-              <span class="skill-pill">Personas</span>
-              <span class="skill-pill">A/B Testing</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-name">Strategy</div>
-            <div class="skill-pills">
-              <span class="skill-pill">Product Strategy</span>
-              <span class="skill-pill">Roadmapping</span>
-              <span class="skill-pill">Design Ops</span>
-              <span class="skill-pill">Team Building</span>
-            </div>
+          <div class="aside-title">Core capabilities</div>
+          <div class="skill-pills">
+            <span class="skill-pill">AI Product Design</span>
+            <span class="skill-pill">AI Workflows</span>
+            <span class="skill-pill">End-to-End UX</span>
+            <span class="skill-pill">Design Systems</span>
+            <span class="skill-pill">Rapid Prototyping</span>
+            <span class="skill-pill">Interaction Design</span>
+            <span class="skill-pill">Conversion Optimization</span>
+            <span class="skill-pill">User Research</span>
+            <span class="skill-pill">Product Strategy</span>
+            <span class="skill-pill">Design Ops</span>
+            <span class="skill-pill">Cross-Functional Leadership</span>
           </div>
         </div>
 
@@ -1493,22 +1491,22 @@ main{padding:48px var(--page-x) 80px}
           <div class="aside-title">Education</div>
           <div class="ed-item">
             <div class="ed-year">2016</div>
+            <div class="ed-cred">M.S. Computer Science</div>
+            <div class="ed-school">San Francisco Bay University · USA</div>
+          </div>
+          <div class="ed-item">
+            <div class="ed-year">2013</div>
+            <div class="ed-cred">B.Tech. Computer Science</div>
+            <div class="ed-school">JNTU · Hyderabad</div>
+          </div>
+          <div class="ed-item">
+            <div class="ed-year">2016</div>
             <div class="ed-cred">UX Design Certification</div>
             <div class="ed-school">General Assembly · San Francisco</div>
           </div>
-          <div class="ed-item">
-            <div class="ed-year">2015 – 2016</div>
-            <div class="ed-cred">M.S. Computer Science</div>
-            <div class="ed-school">Northwestern Polytechnic University · USA</div>
-          </div>
-          <div class="ed-item">
-            <div class="ed-year">2009 – 2013</div>
-            <div class="ed-cred">B.S. Computer Science</div>
-            <div class="ed-school">JNTU · Hyderabad</div>
-          </div>
         </div>
 
-        <a href="mailto:gouthammotati@gmail.com?subject=Resume PDF request" class="btn btn-ghost btn-sm" style="width:100%; justify-content:center">Request resume PDF</a>
+        <a href="https://drive.google.com/file/d/1qTpa81WBjag_u1ZyNXqVis_1NoTylOAt/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="width:100%; justify-content:center">View resume (PDF) <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </aside>
 
     </div>
