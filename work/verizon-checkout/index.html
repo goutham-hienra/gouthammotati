@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Analytics: Umami Cloud (cookieless, no consent banner; hash routes auto-counted via pushState). Added 2026-09-22. Dashboard: https://cloud.umami.is -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8f1100ed-1ced-4751-9baa-4b061f097b46"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 /* ════════ LIVE index.html :root — embedded verbatim (maroon accent) ════════ */
@@ -539,7 +541,7 @@ body::after{
 <div class="cs-progress" id="csProgress" aria-hidden="true"></div>
 
 <header class="cs-topbar">
-  <a class="cs-backnav" href="/">← Back to work</a>
+  <a class="cs-backnav" data-umami-event="back-home-case-top" href="/">← Back to work</a>
 </header>
 
 <main class="shell">
@@ -1020,8 +1022,8 @@ body::after{
   </section>
 
   <footer class="cs-section cs-foot">
-    <a class="btn btn-ghost" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
-    <a class="btn btn-ghost" href="/">← Back to home</a>
+    <a class="btn btn-ghost" data-umami-event="say-hello-case" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
+    <a class="btn btn-ghost" data-umami-event="back-home-case" href="/">← Back to home</a>
   </footer>
 
 </article>

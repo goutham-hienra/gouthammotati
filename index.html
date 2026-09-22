@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Analytics: Umami Cloud (cookieless, no consent banner; hash routes auto-counted via pushState). Added 2026-09-22. Dashboard: https://cloud.umami.is -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8f1100ed-1ced-4751-9baa-4b061f097b46"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -918,7 +920,7 @@ main{padding:48px var(--page-x) 80px}
         <a class="nav-link active" data-page="home" href="#home" onclick="route(event,'home')">Home</a>
         <a class="nav-link" data-page="resume" href="#resume" onclick="route(event,'resume')">Resume</a>
       </div>
-      <a class="nav-cta" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
+      <a class="nav-cta" data-umami-event="say-hello-nav" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
     </div>
   </nav>
 
@@ -964,7 +966,7 @@ main{padding:48px var(--page-x) 80px}
             </div>
           </div>
         </div>
-        <a class="li-cta m-only" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
+        <a class="li-cta m-only" data-umami-event="say-hello-hero" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
       </section>
 
       <!-- ═══════════════════ FEATURED WORK ═══════════════════ -->
@@ -978,7 +980,7 @@ main{padding:48px var(--page-x) 80px}
         <div class="work-grid">
 
       <!-- case study: Verizon -->
-      <a class="cell c-case c-case-verizon" href="work/verizon-checkout/">
+      <a class="cell c-case c-case-verizon" data-umami-event="case-study-tile" href="work/verizon-checkout/">
         <div class="case-top">
           <div class="case-meta">
             <span class="case-name">Verizon</span>
@@ -1246,20 +1248,20 @@ main{padding:48px var(--page-x) 80px}
         <div class="eyebrow">Connect</div>
         <p class="contact-note">Available for lead product design roles and contract projects.</p>
         <div class="contact-list">
-          <a class="contact-row" href="mailto:gouthammotati@gmail.com">
+          <a class="contact-row" data-umami-event="say-hello-connect" href="mailto:gouthammotati@gmail.com">
             <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
             gouthammotati@gmail.com
           </a>
-          <a class="contact-row" href="tel:+919160688898">
+          <a class="contact-row" data-umami-event="connect-phone" href="tel:+919160688898">
             <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
             +91 91606 88898
           </a>
-          <a class="contact-row" href="https://www.linkedin.com/in/gouthammotati" target="_blank" rel="noopener">
+          <a class="contact-row" data-umami-event="connect-linkedin" href="https://www.linkedin.com/in/gouthammotati" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v6M8 7v.01M12 17v-4M12 13a2 2 0 014 0v4"/></svg>
             linkedin.com/in/gouthammotati
           </a>
         </div>
-        <a class="contact-cta m-only" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
+        <a class="contact-cta m-only" data-umami-event="say-hello-connect-cta" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
       </section>
 
     </div>
@@ -1516,13 +1518,13 @@ main{padding:48px var(--page-x) 80px}
           </div>
         </div>
 
-        <a href="https://drive.google.com/file/d/1qTpa81WBjag_u1ZyNXqVis_1NoTylOAt/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="width:100%; justify-content:center">View resume (PDF) <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        <a href="https://drive.google.com/file/d/1qTpa81WBjag_u1ZyNXqVis_1NoTylOAt/view?usp=sharing" target="_blank" rel="noopener" data-umami-event="resume-pdf" class="btn btn-ghost btn-sm" style="width:100%; justify-content:center">View resume (PDF) <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </aside>
 
     </div>
 
     <div class="page-foot">
-      <a class="btn btn-ghost" href="#home" onclick="route(event,'home')">← Back to home</a>
+      <a class="btn btn-ghost" data-umami-event="back-home-resume" href="#home" onclick="route(event,'home')">← Back to home</a>
     </div>
   </section>
 
@@ -1633,6 +1635,7 @@ window.addEventListener('hashchange', () => {
     document.getElementById(page).classList.add('active');
     document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.dataset.page === page));
     if(project) openCase(project); else closeCase();
+    if(window.umami) umami.track(); // back/forward between hash routes (pushState is auto-counted)
   }
 });
 
@@ -1790,7 +1793,7 @@ function openCase(id){
     </div>
   `).join('');
 
-  const linkHtml = c.link ? '<div class="cd-section"><a class="work-link" href="' + c.link + '">View case study <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>' : '';
+  const linkHtml = c.link ? '<div class="cd-section"><a class="work-link" data-umami-event="case-study-panel" href="' + c.link + '">View case study <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>' : '';
 
   document.getElementById('cdContent').innerHTML = `
     <div class="cd-eyebrow">Case study · ${c.co}</div>
