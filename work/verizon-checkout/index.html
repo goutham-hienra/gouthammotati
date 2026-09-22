@@ -337,7 +337,7 @@ body::after{
 .cs-metric .n{ font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-title); font-size:1.75rem; line-height:1; letter-spacing:-.02em; color:var(--champagne) }
 .cs-metric .l{ font:400 12.5px/1.45 var(--sans); color:var(--text-secondary) }
 /* ════════ reflection / footer ════════ */
-.cs-foot{ text-align:center; border-top:1px solid var(--border-subtle); margin-top:30px }
+.cs-foot{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; border-top:1px solid var(--border-subtle); margin-top:30px }
 .cs-reflect-close{ margin-top:34px }
 .cs-so-rule{ height:1px; background:var(--border-ghost); margin:0 0 24px; max-width:520px }
 .cs-so-fwd{ font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-title); font-size:clamp(1.2rem,2vw,1.35rem); line-height:1.45; color:var(--text-primary); max-width:42ch; margin:0 }
@@ -1020,6 +1020,7 @@ body::after{
   </section>
 
   <footer class="cs-section cs-foot">
+    <a class="btn btn-ghost" href="mailto:gouthammotati@gmail.com">Say hello ↗</a>
     <a class="btn btn-ghost" href="/">← Back to home</a>
   </footer>
 
