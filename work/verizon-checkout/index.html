@@ -129,38 +129,65 @@ body::after{
 .cs-glass-light{ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0) 50%),var(--bg-surface); backdrop-filter:var(--glass-blur-light); -webkit-backdrop-filter:var(--glass-blur-light); border:1px solid var(--border-subtle); border-radius:var(--r-md); box-shadow:var(--glass-edge) }
 /* ════════ 1 · HERO ════════ */
 .cs-hero{ text-align:left; position:relative }
-.cs-hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 48% 62% at 20% 42%, rgba(212,175,111,.10), transparent 70%) }
 .cs-hero .cs-lede{ margin-inline:0; max-width:860px; position:relative; z-index:1 }
 .cs-hero-title{ margin-top:22px; font-family:var(--serif); font-weight:300; font-variation-settings:var(--opsz-heading); font-size:clamp(1.7rem,3.2vw,2.5rem); line-height:1.1; letter-spacing:-.02em; color:var(--text-primary); max-width:20ch }
-.cs-hero-funnel{ margin-top:26px }
-.cs-funnel-note{ display:inline-flex; align-items:center; gap:7px; margin-top:8px; font:500 10.5px/1.3 var(--sans); letter-spacing:.02em; color:var(--text-tertiary) }
-.cs-funnel-note .cb{ flex:none; opacity:.85 }
-.cs-timeline{ position:relative; margin-top:2px }
-.cs-timeline::before{ content:''; position:absolute; left:17px; top:2px; bottom:0; width:2px; background:linear-gradient(180deg,rgba(255,255,255,.24) 0%,rgba(255,255,255,.1) 40%,transparent 74%) }
-.tl-step{ position:relative; display:grid; grid-template-columns:38px 1fr; align-items:center; gap:16px; padding:13px 0 }
-.tl-step::before{ content:''; position:absolute; left:16px; top:0; bottom:0; width:3px; border-radius:2px }
-.tl-step.active::before{ background:rgba(255,255,255,.5) }
-/* steps recede: each lower step blurs + fades more */
-.tl-step.s2{ filter:blur(1.4px); opacity:.6 }
-.tl-step.s3{ filter:blur(3px); opacity:.4 }
-.tl-step.s4{ filter:blur(5px); opacity:.26 }
-.tl-step.s5{ filter:blur(7px); opacity:.16 }
-.tl-step.s6{ filter:blur(9px); opacity:.1 }
-.tl-node{ width:13px; height:13px; border-radius:50%; background:rgba(255,255,255,.16); border:3px solid var(--obsidian); margin:0 0 0 8px; position:relative; z-index:1; box-sizing:content-box; display:flex; align-items:center; justify-content:center }
-.tl-node.big{ width:16px; height:16px; background:rgba(255,255,255,.9); margin-left:7px; box-shadow:0 0 0 5px rgba(255,255,255,.07) }
-.tl-node.hollow{ background:transparent; border:2px solid rgba(255,255,255,.3); margin-left:10px }
-.tl-node.check{ background:transparent; border:1.5px solid rgba(255,255,255,.32); margin-left:10px }
-.tl-card{ padding:14px 16px; border-radius:var(--r-md); background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0) 60%),var(--bg-surface); backdrop-filter:var(--glass-blur-light); -webkit-backdrop-filter:var(--glass-blur-light); border:1px solid var(--border-subtle) }
-.tl-step.active .tl-card{ border-color:var(--maroon); box-shadow:0 0 0 1px rgba(199,72,61,.28), 0 0 26px rgba(199,72,61,.14) }
-.tl-card.mini{ padding:11px 15px; background:var(--w-04); backdrop-filter:none; -webkit-backdrop-filter:none }
-.tl-card.mini .tl-title{ font-weight:500; font-size:13.5px }
-.tl-card.mini .tl-drop{ font-size:11.5px; margin-top:5px }
-.tl-body{ display:flex; align-items:center; gap:15px }
-.tl-cart{ flex:none; color:rgba(255,255,255,.5) }
-.tl-eyebrow{ font:600 9.5px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--w-65); margin-bottom:7px }
-.tl-title{ font:600 15px/1.3 var(--sans); color:var(--text-primary) }
-.tl-drop{ display:flex; align-items:center; gap:7px; margin-top:7px; font-family:var(--mono); font-size:12.5px; color:#d6584b }
-.tl-drop::before{ content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid #d6584b }
+/* hero devices — laptop + phone skeleton of the rebuilt checkout (flat, front-on; every size in em, scaled to the figure width via cqw) */
+.cs-hero-devices{ margin-top:30px; max-width:640px; container-type:inline-size }
+.hd-stage{ position:relative; font-size:10px; font-size:1.6cqw; padding-bottom:1.6em }
+.hd-lap{ position:relative; z-index:1; width:80%; margin-left:5% }
+.hd-lap-lid{ padding:.7em; border:1px solid var(--border-ghost); border-radius:1.5em 1.5em .5em .5em; background:var(--bg-deep); box-shadow:var(--glass-card-shadow),var(--glass-edge-strong) }
+.hd-lap-scr{ aspect-ratio:16/10; border-radius:.8em; background:linear-gradient(180deg,var(--obsidian-2),var(--obsidian-3)); overflow:hidden; display:flex; flex-direction:column }
+.hd-lap-base{ position:relative; height:1.1em; margin:0 -6%; border-radius:.2em .2em 1.3em 1.3em; background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06)); box-shadow:var(--glass-edge) }
+.hd-lap-base::before{ content:''; position:absolute; left:50%; top:0; width:14%; height:.4em; transform:translateX(-50%); border-radius:0 0 .5em .5em; background:rgba(0,0,0,.4) }
+.hd-bar{ display:flex; align-items:center; gap:1.2em; padding:1em 1.6em; border-bottom:1px solid var(--border-subtle) }
+.hd-bar .sk{ width:3.6em; height:.5em; border-radius:1em }
+.hd-bar .sk.end{ width:5em; margin-left:auto }
+.hd-mark{ width:1.5em; height:1.5em; border-radius:.4em; background:var(--w-08); border:1px solid var(--border-subtle); flex:none }
+.hd-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:2em; padding:1.5em 1.6em 0 }
+.hd-step{ font:600 .7em/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--text-tertiary) }
+.hd-title{ font-family:var(--serif); font-weight:400; font-variation-settings:var(--opsz-title); font-size:1.7em; line-height:1.1; letter-spacing:-.01em; color:var(--text-primary); margin-top:.3em }
+.hd-prog{ display:flex; align-items:center; width:17em; padding-bottom:.4em }
+.hd-prog i{ width:.8em; height:.8em; border-radius:50%; background:var(--w-10); flex:none }
+.hd-prog i.now{ background:var(--bg-deep); border:.15em solid var(--champagne); box-shadow:0 0 .7em var(--champagne-glow) }
+.hd-prog b{ flex:1; height:.15em; background:var(--w-10) }
+.hd-cols{ flex:1; min-height:0; display:grid; grid-template-columns:1.7fr 1fr; gap:1.6em; padding:1.5em 1.6em 0 }
+.hd-form{ display:grid; grid-template-columns:1fr 1fr; gap:1em; align-content:start }
+.hd-field.wide{ grid-column:1 / -1 }
+.hd-field .lab{ display:block; width:42%; height:.45em; border-radius:1em; background:var(--w-12); margin-bottom:.5em }
+.hd-field .box{ display:block; height:2.7em; border-radius:.6em; background:var(--w-04); border:1px solid var(--border-subtle) }
+.hd-cart{ align-self:start; padding:1.2em; border-radius:.9em; background:var(--w-04); border:1px solid var(--border-subtle) }
+.hd-cart-h{ font:600 .7em/1 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--text-tertiary) }
+.hd-cart-row{ display:flex; align-items:center; justify-content:space-between; margin-top:1em }
+.hd-cart-row .sk{ width:52%; height:.5em; border-radius:1em }
+.hd-cart-row .sk.v{ width:20% }
+.hd-cart-total{ display:flex; align-items:baseline; justify-content:space-between; margin-top:1.1em; padding-top:1em; border-top:1px solid var(--border-subtle) }
+.hd-cart-total .l{ font:500 .7em/1 var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--text-tertiary) }
+.hd-cart-total .n{ font-family:var(--serif); font-variation-settings:var(--opsz-title); font-size:1.4em; line-height:1; color:var(--text-primary) }
+/* the footer is the one champagne element on each screen — the signature move from §6 */
+.hd-foot{ display:flex; align-items:center; justify-content:space-between; gap:1.6em; margin-top:1.2em; padding:.9em 1.6em; background:linear-gradient(180deg,rgba(212,175,111,.04),rgba(212,175,111,.10)); border-top:1px solid var(--champagne-30) }
+.hd-banner{ font:500 .7em/1.3 var(--sans); letter-spacing:.01em; color:var(--champagne); background:var(--champagne-15); border:1px solid var(--champagne-30); border-radius:.9em; padding:.55em .9em }
+.hd-cta{ font:600 1em/1 var(--sans); color:var(--on-accent); background:var(--champagne); border-radius:var(--r-pill); padding:.8em 1.7em; box-shadow:0 0 1.6em var(--champagne-glow); flex:none }
+.hd-phone{ position:absolute; z-index:2; right:0; bottom:0; width:21%; aspect-ratio:9/18.6; padding:.55em; display:flex; flex-direction:column; border:1px solid var(--border-ghost); border-radius:2em; background:var(--bg-deep); box-shadow:var(--glass-edge-strong), -1em 1.4em 3em rgba(0,0,0,.6) }
+.hd-phone-scr{ flex:1; min-height:0; border-radius:1.5em; background:linear-gradient(180deg,var(--obsidian-2),var(--obsidian-3)); overflow:hidden; display:flex; flex-direction:column }
+.hd-p-body{ flex:1; min-height:0; overflow:hidden; padding:1.1em .9em 0; display:flex; flex-direction:column; gap:.75em }
+.hd-p-top{ display:flex; align-items:center; justify-content:space-between }
+.hd-p-top .hd-mark{ width:1.2em; height:1.2em; border-radius:.35em }
+.hd-burger{ display:flex; flex-direction:column; gap:.22em }
+.hd-burger span{ width:1.1em; height:.12em; border-radius:1em; background:var(--w-45) }
+.hd-phone .hd-step{ font-size:.5em }
+.hd-phone .hd-title{ font-size:1.05em; margin-top:.25em }
+.hd-phone .hd-prog{ width:100%; padding:0 }
+.hd-phone .hd-prog i{ width:.55em; height:.55em }
+.hd-phone .hd-prog b{ height:.1em }
+.hd-phone .hd-field .lab{ height:.35em; margin-bottom:.4em }
+.hd-phone .hd-field .box{ height:2em; border-radius:.5em }
+.hd-p-foot{ padding:.7em .8em 1em; background:linear-gradient(180deg,rgba(212,175,111,.04),rgba(212,175,111,.10)); border-top:1px solid var(--champagne-30) }
+.hd-phone .hd-banner{ font-size:.52em; margin-bottom:1.5em }
+.hd-p-row{ display:flex; align-items:center; justify-content:space-between; gap:.5em }
+.hd-price .l{ font:500 .45em/1 var(--sans); letter-spacing:.08em; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:.6em }
+.hd-price .n{ font-family:var(--serif); font-variation-settings:var(--opsz-title); font-size:.95em; line-height:1; color:var(--text-primary) }
+.hd-phone .hd-cta{ font-size:.6em; padding:.9em 1.3em }
+.cs-hero-note{ margin-top:16px; font:400 11px/1.5 var(--sans); letter-spacing:.01em; color:var(--text-secondary) }
 .cs-hero-turn{ margin-top:28px; font-size:clamp(1rem,1.6vw,1.18rem); line-height:1.55; color:var(--text-secondary); max-width:54ch }
 /* hero at-a-glance — right column, 3 cards (option 2: dominant + at-a-glance) */
 .cs-hero-grid{ display:grid; grid-template-columns:1.12fr .88fr; gap:clamp(28px,4vw,52px); align-items:start; position:relative; z-index:1 }
@@ -529,6 +556,7 @@ body::after{
 :root{ --page-x:20px }
 .cs-fourup{ grid-template-columns:1fr }
 .cs-hero .cs-lede{ max-width:none }
+.hd-phone{ width:30%; font-size:1.43em }
 
 }
 
@@ -547,38 +575,50 @@ body::after{
 <main class="shell">
 <article class="cs-page-v">
 
-  <!-- ═══ 1 · HERO — dominant hook + at-a-glance (3 cards) ═══ -->
+  <!-- ═══ 1 · HERO — dominant hook + laptop/phone mockup + at-a-glance (3 cards) ═══ -->
   <section class="cs-section cs-hero">
     <div class="cs-hero-grid">
       <div class="cs-lede">
         <div class="cs-eyebrow">Case study · Verizon · Home Internet Checkout</div>
         <h1 class="cs-hero-title">64% of customers left at the first step of checkout</h1>
         <p class="cs-hero-turn">Then we rebuilt the funnel inside a 20-year-old system — one shippable win at a time.</p>
-        <figure class="cs-hero-funnel">
-          <div class="cs-timeline">
-            <div class="tl-step active">
-              <div class="tl-node big" aria-hidden="true"></div>
-              <div class="tl-card">
-                <div class="tl-body">
-                  <svg class="tl-cart" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/><path d="M2.4 3.5 H5 L7.2 15 H18.3 L20.3 7 H6"/></svg>
-                  <div class="tl-txt">
-                    <div class="tl-eyebrow">Checkout</div>
-                    <div class="tl-title">Step 1. Contact &amp; billing</div>
-                    <div class="tl-drop">64% drop off</div>
+        <figure class="cs-hero-devices">
+          <div class="hd-stage" role="img" aria-label="Skeleton mockup of the rebuilt checkout on a laptop and a phone. Both show step 1 of 6, Contact and billing, with a progress indicator. The laptop keeps an order summary beside the form; the phone holds the monthly price and the Continue button in a sticky footer.">
+            <div class="hd-lap">
+              <div class="hd-lap-lid"><div class="hd-lap-scr">
+                <div class="hd-bar"><span class="hd-mark"></span><span class="sk"></span><span class="sk"></span><span class="sk"></span><span class="sk end"></span></div>
+                <div class="hd-head">
+                  <div><div class="hd-step">Step 1 of 6</div><div class="hd-title">Contact &amp; billing</div></div>
+                  <div class="hd-prog"><i class="now"></i><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i></div>
+                </div>
+                <div class="hd-cols">
+                  <div class="hd-form"><div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field wide"><span class="lab"></span><span class="box"></span></div></div>
+                  <div class="hd-cart">
+                    <div class="hd-cart-h">Order summary</div>
+                    <div class="hd-cart-row"><span class="sk"></span><span class="sk v"></span></div>
+                    <div class="hd-cart-row"><span class="sk"></span><span class="sk v"></span></div>
+                    <div class="hd-cart-row"><span class="sk"></span><span class="sk v"></span></div>
+                    <div class="hd-cart-total"><span class="l">Monthly</span><span class="n">$XX/mo</span></div>
                   </div>
                 </div>
-              </div>
+                <div class="hd-foot"><div class="hd-banner">$XX setup charge waived</div><div class="hd-cta">Continue</div></div>
+              </div></div>
+              <div class="hd-lap-base"></div>
             </div>
-            <div class="tl-step s2"><div class="tl-node" aria-hidden="true"></div><div class="tl-card mini"><div class="tl-title">Step 2. Credit review</div><div class="tl-drop">34% drop off</div></div></div>
-            <div class="tl-step s3"><div class="tl-node" aria-hidden="true"></div><div class="tl-card mini"><div class="tl-title">Step 3. Install</div></div></div>
-            <div class="tl-step s4"><div class="tl-node" aria-hidden="true"></div><div class="tl-card mini"><div class="tl-title">Step 4. Paper-free billing &amp; Autopay</div></div></div>
-            <div class="tl-step s5"><div class="tl-node" aria-hidden="true"></div><div class="tl-card mini"><div class="tl-title">Step 5. Terms and conditions</div></div></div>
-            <div class="tl-step s6"><div class="tl-node" aria-hidden="true"></div><div class="tl-card mini"><div class="tl-title">Step 6. Order confirmation</div></div></div>
+            <div class="hd-phone"><div class="hd-phone-scr">
+              <div class="hd-p-body">
+                <div class="hd-p-top"><span class="hd-mark"></span><span class="hd-burger"><span></span><span></span><span></span></span></div>
+                <div><div class="hd-step">Step 1 of 6</div><div class="hd-title">Contact &amp; billing</div></div>
+                <div class="hd-prog"><i class="now"></i><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i><b></b><i></i></div>
+                <div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field"><span class="lab"></span><span class="box"></span></div><div class="hd-field"><span class="lab"></span><span class="box"></span></div>
+              </div>
+              <div class="hd-p-foot">
+                <div class="hd-banner">$XX setup charge waived</div>
+                <div class="hd-p-row"><div class="hd-price"><div class="l">Monthly</div><div class="n">$XX/mo</div></div><div class="hd-cta">Continue</div></div>
+              </div>
+            </div></div>
           </div>
-          <div class="cs-funnel-note">
-            <svg class="cb" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.4 5.6 A 8.5 8.5 0 0 1 13.6 5.6"/><path d="M4.6 8.1 A 5 5 0 0 1 11.4 8.1"/><circle cx="8" cy="11" r="1.1" fill="currentColor" stroke="none"/></svg>
-            <span>Home Internet Checkout — lower funnel</span>
-          </div>
+          <figcaption class="cs-hero-note">The rebuilt checkout on desktop and phone. Layout and copy abstracted for NDA.</figcaption>
         </figure>
       </div>
       <aside class="cs-aag" aria-label="At a glance">
